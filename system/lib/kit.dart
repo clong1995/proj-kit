@@ -6,6 +6,10 @@ import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
 import 'package:system/theme.dart';
+import 'package:system/widget/alert/confirm.dart';
+import 'package:system/widget/alert/custom.dart';
+import 'package:system/widget/alert/delete.dart';
+import 'package:system/widget/alert/info.dart';
 
 import 'builder.dart';
 import 'widget/cached_image.dart';
@@ -43,7 +47,15 @@ Future<void> kitInit(
     rpx: Rpx.rpx,
     appTheme: appTheme(),
     builder: builder,
+    //包管理
     package: Package.package,
+    //网络图片
     cachedImage: CachedImage.image,
+    //弹窗
+    alertConfirm: confirm,
+    alertDelete: delete,
+    alertInfo: info,
+    alertCustom: custom,
+    alertContent: CustomContent.new,
   );
 }

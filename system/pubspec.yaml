@@ -23,12 +23,13 @@ dependencies:
     git:
       url: https://github.com/clong1995/flutter_ui.git
       path: rpx
+  #网络图片缓存
   cached_network_image: ^3.3.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
