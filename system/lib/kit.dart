@@ -12,6 +12,7 @@ import 'package:system/widget/alert/delete.dart';
 import 'package:system/widget/alert/info.dart';
 
 import 'builder.dart';
+import 'func/auth.dart';
 import 'widget/cached_image.dart';
 
 Future<void> kitInit(
@@ -57,5 +58,10 @@ Future<void> kitInit(
     alertInfo: info,
     alertCustom: custom,
     alertContent: CustomContent.new,
+    //凭证
+    authInit: Auth.init,
+    authLoad: Auth.load,
+    authClean: Auth.clean,
+    authState: Auth.state,
   );
 }

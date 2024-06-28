@@ -57,6 +57,15 @@ class Kit {
     Widget? action,
   }) alertContent;
 
+  final Future<void> Function({
+    required String accessKeyID,
+    required String secretAccessKey,
+    required String userID,
+  }) authInit;
+  final Future<bool?> Function(String name) authLoad;
+  final Future<void> Function() authClean;
+  final bool Function() authState;
+
   const Kit({
     //单位
     required this.rpx,
@@ -75,5 +84,11 @@ class Kit {
     required this.alertInfo,
     required this.alertCustom,
     required this.alertContent,
+
+    //凭证
+    required this.authLoad,
+    required this.authInit,
+    required this.authClean,
+    required this.authState,
   });
 }
