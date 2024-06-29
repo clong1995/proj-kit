@@ -24,11 +24,5 @@ Widget builder(BuildContext context, Widget? child) {
     child: child,
   );
 
-  //去掉手势
-  child =  MouseRegion(
-    cursor: SystemMouseCursors.basic,
-    child: child,
-  );
-
   return child;
 }
