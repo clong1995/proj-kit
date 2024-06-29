@@ -11,8 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #kit:
-  #  path: ../kit
   kit:
     git:
       url: https://github.com/clong1995/proj-kit.git
@@ -39,6 +37,8 @@ dependencies:
   http: ^1.2.1
   #toast
   toastification: ^2.0.0
+  #唯一id
+  xid: ^1.2.1
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+
+import 'nio.dart';
 
 class Register {
   final String name;
@@ -57,6 +61,7 @@ class Kit {
     Widget? action,
   }) alertContent;
 
+  //凭证
   final Future<void> Function({
     required String accessKeyID,
     required String secretAccessKey,
@@ -65,6 +70,25 @@ class Kit {
   final Future<bool?> Function(String name) authLoad;
   final Future<void> Function() authClean;
   final bool Function() authState;
+
+  //请求
+  final Future<T> Function<S extends BaseReq, T extends BaseRes>(
+    String uri, {
+    S? req,
+    T? res,
+    Uint8List? binary,
+  }) nio;
+
+  //路由操作
+  final Future<T?> Function<T extends Object?>(BuildContext, Widget Function(),
+      {bool root, Object? args}) push;
+  final void Function<T extends Object?>(BuildContext context,
+      {bool root, T? result}) pop;
+  final Future<T?> Function<T extends Object?>(
+      BuildContext context, Widget Function() page,
+      {bool root, Object? args}) pushAndRemove;
+  final T? Function<T>(BuildContext context) routeArgs;
+  final String Function() sid;
 
   const Kit({
     //单位
@@ -90,5 +114,17 @@ class Kit {
     required this.authInit,
     required this.authClean,
     required this.authState,
+
+    //请求
+    required this.nio,
+
+    //路由操作
+    required this.push,
+    required this.pushAndRemove,
+    required this.pop,
+    required this.routeArgs,
+
+    //唯一id
+    required this.sid,
   });
 }

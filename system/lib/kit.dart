@@ -14,17 +14,20 @@ import 'package:system/widget/alert/info.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
+import 'func/nav.dart';
+import 'func/nio/nio.dart';
+import 'func/sid.dart';
 import 'widget/cached_image.dart';
 
 Future<void> kitInit(
-  Iterable<Register Function()> registers, {
-  //请求地址的host，如 https://api.abc.com
-  required String host,
-  //null:根据屏幕自动适配,
-  //0:不使用适配
-  //数字: 按照指定大小适配
-  double? rpx,
-}) async {
+    Iterable<Register Function()> registers, {
+      //请求地址的host，如 https://api.abc.com
+      required String host,
+      //null:根据屏幕自动适配,
+      //0:不使用适配
+      //数字: 按照指定大小适配
+      double? rpx,
+    }) async {
   //系统设置
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarBrightness: Brightness.dark,
@@ -34,9 +37,9 @@ Future<void> kitInit(
 
   //注册包
   Package.register(registers.map((Register Function() element) => () {
-        Register r = element();
-        return reg.Register(r.name, r.packageBuilder);
-      }));
+    Register r = element();
+    return reg.Register(r.name, r.packageBuilder);
+  }));
 
   //设置全局的请求host
   sendHost(host);
@@ -67,5 +70,16 @@ Future<void> kitInit(
     authLoad: Auth.load,
     authClean: Auth.clean,
     authState: Auth.state,
+
+    //请求
+    nio: nio,
+
+    //路由操作
+    push: Nav.push,
+    pushAndRemove: Nav.pushAndRemove,
+    pop: Nav.pop,
+    routeArgs: Nav.routeArgs,
+    //唯一ID
+    sid: sid,
   );
 }
