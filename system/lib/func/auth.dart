@@ -1,8 +1,12 @@
+import 'package:encrypt/encrypt.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'guid.dart';
 
 class _Auth {
   static const String ak = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
   static const String sk = "AAAAAAAAAAA";
+  static const String vi = "code yuchenglong";
   static String accessKeyID = "";
   static String userID = "";
   static String secretAccessKey = "";
@@ -18,6 +22,8 @@ class Auth {
 
   static late SharedPreferences _prefs;
 
+  static final IV _iv = IV.fromUtf8(_Auth.vi);
+
   //从本地加载凭证
   static Future<bool?> load(String key) async {
     _prefs = await SharedPreferences.getInstance();
@@ -26,7 +32,13 @@ class Auth {
     if (content.isEmpty) {
       return false;
     }
-    List<String> lines = content.split('\n');
+
+    // 解密
+    Encrypted encrypted = Encrypted.fromBase64(content);
+    Encrypter encrypter = await _encrypter();
+    String decrypted = encrypter.decrypt(encrypted, iv: _iv);
+
+    List<String> lines = decrypted.split('\n');
     if (lines.length == 3) {
       _Auth.accessKeyID = lines[0];
       _Auth.secretAccessKey = lines[1];
@@ -65,8 +77,8 @@ class Auth {
         _Auth.secretAccessKey != "" &&
         _Auth.secretAccessKey != _Auth.sk;
   }
-  static bool state()=>_state;
 
+  static bool state() => _state;
 
   static Future<bool> _set() async {
     if (!_state) {
@@ -75,7 +87,18 @@ class Auth {
       _Auth.secretAccessKey = _Auth.sk;
       _Auth.userID = "";
     }
-    return await _prefs.setString(_Auth.key,
-        "${_Auth.accessKeyID}\n${_Auth.secretAccessKey}\n${_Auth.userID}");
+
+    Encrypter encrypter = await _encrypter();
+    Encrypted encrypted = encrypter.encrypt(
+        "${_Auth.accessKeyID}\n${_Auth.secretAccessKey}\n${_Auth.userID}",
+        iv: _iv);
+
+    return await _prefs.setString(_Auth.key, encrypted.base64);
+  }
+
+  static Future<Encrypter> _encrypter() async {
+    String id = (await guid()).padRight(32).substring(0, 32);
+    Key key = Key.fromUtf8(id);
+    return Encrypter(AES(key, mode: AESMode.cbc));
   }
 }

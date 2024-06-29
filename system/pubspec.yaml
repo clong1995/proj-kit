@@ -12,9 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
   kit:
-    git:
-      url: https://github.com/clong1995/proj-kit.git
-      path: kit
+    path: ../kit
+  #kit:
+  #  git:
+  #    url: https://github.com/clong1995/proj-kit.git
+  #    path: kit
   package:
     git:
       url: https://github.com/clong1995/flutter_ui.git
@@ -25,6 +27,18 @@ dependencies:
       path: rpx
   #网络图片缓存
   cached_network_image: ^3.3.1
+  #本地存储
+  shared_preferences: ^2.2.3
+  #加解密
+  encrypt: ^5.0.3
+  #设备信息
+  device_info_plus: ^10.1.0
+  #摘要
+  crypto: ^3.0.3
+  #http
+  http: ^1.2.1
+  #toast
+  toastification: ^2.0.0
 
 dev_dependencies:
   flutter_test:

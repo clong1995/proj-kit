@@ -5,6 +5,7 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
+import 'package:system/func/nio/src/send.dart';
 import 'package:system/theme.dart';
 import 'package:system/widget/alert/confirm.dart';
 import 'package:system/widget/alert/custom.dart';
@@ -18,7 +19,7 @@ import 'widget/cached_image.dart';
 Future<void> kitInit(
   Iterable<Register Function()> registers, {
   //请求地址的host，如 https://api.abc.com
-  String? host,
+  required String host,
   //null:根据屏幕自动适配,
   //0:不使用适配
   //数字: 按照指定大小适配
@@ -31,17 +32,20 @@ Future<void> kitInit(
     statusBarColor: Colors.transparent,
   ));
 
-  //竖屏
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
-  //单位
-  Rpx.init(rpx);
-
   //注册包
   Package.register(registers.map((Register Function() element) => () {
         Register r = element();
         return reg.Register(r.name, r.packageBuilder);
       }));
+
+  //设置全局的请求host
+  sendHost(host);
+
+  //竖屏
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  //单位
+  Rpx.init(rpx);
 
   //初始化kit
   kit = Kit(
