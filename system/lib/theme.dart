@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rpx/ext.dart';
 
@@ -13,7 +14,10 @@ ThemeData appTheme({Color? color}) {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       backgroundColor: Colors.white,
-      toolbarHeight: 45.r,
+      toolbarHeight: (defaultTargetPlatform == TargetPlatform.iOS ||
+              defaultTargetPlatform == TargetPlatform.android)
+          ? 45.r
+          : 40.r,
       iconTheme: const IconThemeData(
         color: Colors.black,
       ),
