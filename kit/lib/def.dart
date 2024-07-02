@@ -32,6 +32,11 @@ class Kit {
     required String imageUrl,
     BoxFit? fit,
   }) cachedImage;
+  final Widget Function({
+    required Widget child,
+    required double width,
+    required double height,
+  }) adaptBox;
 
   //弹窗
   final Future<bool?> Function({
@@ -101,6 +106,7 @@ class Kit {
     required this.package,
     //网络图片
     required this.cachedImage,
+    required this.adaptBox,
 
     //弹窗
     required this.alertConfirm,

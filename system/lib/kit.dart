@@ -11,6 +11,7 @@ import 'package:system/widget/alert/confirm.dart';
 import 'package:system/widget/alert/custom.dart';
 import 'package:system/widget/alert/delete.dart';
 import 'package:system/widget/alert/info.dart';
+import 'package:ui_adapt_box/ui_adapt_box.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
@@ -59,6 +60,8 @@ Future<void> kitInit(
     package: Package.package,
     //网络图片
     cachedImage: CachedImage.image,
+    //自适应
+    adaptBox:UiAdaptBox.new,
     //弹窗
     alertConfirm: confirm,
     alertDelete: delete,
