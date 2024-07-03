@@ -7,6 +7,10 @@ ThemeData appTheme({Color? color}) {
   color ??= const Color.fromRGBO(96, 173, 249, 1);
 
   const Color backgroundColor = Color.fromRGBO(247, 248, 250, 1.0);
+
+  final bool isMobile = defaultTargetPlatform == TargetPlatform.iOS ||
+      defaultTargetPlatform == TargetPlatform.android;
+
   return ThemeData(
     platform: TargetPlatform.iOS,
     primaryColor: color,
@@ -15,17 +19,16 @@ ThemeData appTheme({Color? color}) {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       backgroundColor: Colors.white,
-      toolbarHeight: (defaultTargetPlatform == TargetPlatform.iOS ||
-          defaultTargetPlatform == TargetPlatform.android)
-          ? 45.r
-          : 30.r,
+      toolbarHeight: isMobile ? 45.r : 30.r,
       iconTheme: const IconThemeData(
         color: Colors.black,
       ),
       actionsIconTheme: const IconThemeData(
         color: Colors.black,
       ),
-      shape: const Border(bottom: BorderSide(color: backgroundColor)),
+      shape: Border(
+        bottom: BorderSide(color: backgroundColor, width: isMobile ? 1.r : 5.r),
+      ),
     ),
     iconTheme: IconThemeData(size: 18.r),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
