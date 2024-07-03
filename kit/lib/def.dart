@@ -66,6 +66,15 @@ class Kit {
     Widget? action,
   }) alertContent;
 
+  //输入框
+  final Widget Function({
+    double? width,
+    bool maxLines,
+    String? text,
+    String? hint,
+    required void Function(String) onChanged,
+  }) input;
+
   //凭证
   final Future<void> Function({
     required String accessKeyID,
@@ -114,6 +123,9 @@ class Kit {
     required this.alertInfo,
     required this.alertCustom,
     required this.alertContent,
+
+    //输入框
+    required this.input,
 
     //凭证
     required this.authLoad,
