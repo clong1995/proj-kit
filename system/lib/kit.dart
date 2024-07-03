@@ -22,14 +22,14 @@ import 'widget/cached_image.dart';
 import 'widget/input.dart';
 
 Future<void> kitInit(
-  Iterable<Register Function()> registers, {
-  //请求地址的host，如 https://api.abc.com
-  required String host,
-  //null:根据屏幕自动适配,
-  //0:不使用适配
-  //数字: 按照指定大小适配
-  double? rpx,
-}) async {
+    Iterable<Register Function()> registers, {
+      //请求地址的host，如 https://api.abc.com
+      required String host,
+      //null:根据屏幕自动适配,
+      //0:不使用适配
+      //数字: 按照指定大小适配
+      double? rpx,
+    }) async {
   //系统设置
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarBrightness: Brightness.dark,
@@ -39,9 +39,9 @@ Future<void> kitInit(
 
   //注册包
   Package.register(registers.map((Register Function() element) => () {
-        Register r = element();
-        return reg.Register(r.name, r.packageBuilder);
-      }));
+    Register r = element();
+    return reg.Register(r.name, r.packageBuilder);
+  }));
 
   //设置全局的请求host
   sendHost(host);

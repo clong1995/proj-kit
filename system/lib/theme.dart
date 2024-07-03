@@ -110,7 +110,7 @@ ThemeData appTheme({Color? color}) {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         padding: EdgeInsets.symmetric(
-          horizontal: 15.r,
+          horizontal: 5.r,
         ),
         textStyle: textStyle,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
