@@ -6,16 +6,17 @@ ThemeData appTheme({Color? color}) {
   final TextStyle textStyle = TextStyle(fontSize: 14.r);
   color ??= const Color.fromRGBO(96, 173, 249, 1);
 
+  const Color backgroundColor = Color.fromRGBO(247, 248, 250, 1.0);
   return ThemeData(
     platform: TargetPlatform.iOS,
     primaryColor: color,
-    scaffoldBackgroundColor: const Color.fromRGBO(247, 248, 250, 1.0),
+    scaffoldBackgroundColor: backgroundColor,
     splashFactory: NoSplash.splashFactory,
     appBarTheme: AppBarTheme(
       centerTitle: true,
       backgroundColor: Colors.white,
       toolbarHeight: (defaultTargetPlatform == TargetPlatform.iOS ||
-              defaultTargetPlatform == TargetPlatform.android)
+          defaultTargetPlatform == TargetPlatform.android)
           ? 45.r
           : 30.r,
       iconTheme: const IconThemeData(
@@ -24,6 +25,7 @@ ThemeData appTheme({Color? color}) {
       actionsIconTheme: const IconThemeData(
         color: Colors.black,
       ),
+      shape: const Border(bottom: BorderSide(color: backgroundColor)),
     ),
     iconTheme: IconThemeData(size: 18.r),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
