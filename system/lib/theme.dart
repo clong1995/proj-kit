@@ -17,7 +17,7 @@ ThemeData appTheme({Color? color}) {
       toolbarHeight: (defaultTargetPlatform == TargetPlatform.iOS ||
               defaultTargetPlatform == TargetPlatform.android)
           ? 45.r
-          : 40.r,
+          : 30.r,
       iconTheme: const IconThemeData(
         color: Colors.black,
       ),
