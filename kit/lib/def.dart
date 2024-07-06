@@ -81,6 +81,12 @@ class Kit {
     required List<Widget> children,
   }) toolBar;
 
+  //搜索框
+  final Widget Function({
+    String hintText,
+    required void Function(String text) onSearchTap,
+  }) searchInput;
+
   //凭证
   final Future<void> Function({
     required String accessKeyID,
@@ -134,6 +140,8 @@ class Kit {
     required this.input,
     //工具栏
     required this.toolBar,
+    //搜索框
+    required this.searchInput,
 
     //凭证
     required this.authLoad,
