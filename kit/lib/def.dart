@@ -78,7 +78,7 @@ class Kit {
   //工具栏
   final Widget Function({
     String title,
-    required Widget children,
+    required List<Widget> children,
   }) toolBar;
 
   //凭证
