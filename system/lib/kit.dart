@@ -20,6 +20,7 @@ import 'widget/alert/delete.dart';
 import 'widget/alert/info.dart';
 import 'widget/cached_image.dart';
 import 'widget/input.dart';
+import 'widget/tool_bar.dart';
 
 Future<void> kitInit(
     Iterable<Register Function()> registers, {
@@ -71,6 +72,8 @@ Future<void> kitInit(
     alertContent: CustomContent.new,
     //输入框
     input: Input.new,
+    //工具栏
+    toolBar:ToolBar.new,
 
     //凭证
     authInit: Auth.init,

@@ -75,6 +75,12 @@ class Kit {
     required void Function(String) onChanged,
   }) input;
 
+  //工具栏
+  final Widget Function({
+    String title,
+    required Widget children,
+  }) toolBar;
+
   //凭证
   final Future<void> Function({
     required String accessKeyID,
@@ -126,6 +132,8 @@ class Kit {
 
     //输入框
     required this.input,
+    //工具栏
+    required this.toolBar,
 
     //凭证
     required this.authLoad,
