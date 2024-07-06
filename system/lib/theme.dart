@@ -20,6 +20,7 @@ ThemeData appTheme({Color? color}) {
       centerTitle: true,
       backgroundColor: Colors.white,
       toolbarHeight: isMobile ? 45.r : 30.r,
+      titleTextStyle:textStyle,
       iconTheme: const IconThemeData(
         color: Colors.black,
       ),
