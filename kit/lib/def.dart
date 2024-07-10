@@ -87,9 +87,10 @@ class Kit {
     required void Function(String text) onSearchTap,
   }) searchInput;
 
+  //表格
   final Widget Function({
     required List<double> cellsWidth,
-  required List<List<Widget>> data,
+    required List<List<Widget>> data,
     double headerHeight,
     double cellHeight,
   }) table;
