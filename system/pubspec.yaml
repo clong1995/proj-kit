@@ -29,6 +29,10 @@ dependencies:
     git:
       url: https://github.com/clong1995/flutter_ui.git
       path: ui_adapt_box
+  ui_table:
+    git:
+      url: https://github.com/clong1995/flutter_ui.git
+      path: ui_table
   #网络图片缓存
   cached_network_image: ^3.3.1
   #本地存储

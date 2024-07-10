@@ -87,6 +87,13 @@ class Kit {
     required void Function(String text) onSearchTap,
   }) searchInput;
 
+  final Widget Function({
+    required List<double> cellsWidth,
+  required List<List<Widget>> data,
+    double headerHeight,
+    double cellHeight,
+  }) table;
+
   //凭证
   final Future<void> Function({
     required String accessKeyID,
@@ -142,6 +149,8 @@ class Kit {
     required this.toolBar,
     //搜索框
     required this.searchInput,
+    //表格
+    required this.table,
 
     //凭证
     required this.authLoad,

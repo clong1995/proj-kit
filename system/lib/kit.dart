@@ -6,6 +6,7 @@ import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
 import 'package:ui_adapt_box/ui_adapt_box.dart';
+import 'package:ui_table/ui_table.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
@@ -77,7 +78,8 @@ Future<void> kitInit(
     toolBar:ToolBar.new,
     //搜索框
     searchInput:SearchInput.new,
-
+    //表格
+    table:UiTable.new,
     //凭证
     authInit: Auth.init,
     authLoad: Auth.load,
