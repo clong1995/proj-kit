@@ -33,7 +33,7 @@ class Kit {
     BoxFit? fit,
   }) cachedImage;
   final Widget Function({
-    required Widget child,
+    required Widget Function(double scale) builder,
     required double width,
     required double height,
   }) adaptBox;
