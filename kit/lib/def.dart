@@ -93,6 +93,7 @@ class Kit {
     required List<List<Widget>> data,
     double headerHeight,
     double cellHeight,
+    BorderSide? borderSide
   }) table;
 
   //凭证
