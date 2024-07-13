@@ -1,6 +1,5 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'nio.dart';
 
@@ -75,6 +74,8 @@ class Kit {
     String? text,
     String? hint,
     TextStyle? style,
+    TextInputType? keyboardType,
+    List<TextInputFormatter>? inputFormatters,
     required void Function(String) onChanged,
   }) input;
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rpx/ext.dart';
 
 class Input extends StatefulWidget {
@@ -9,6 +10,8 @@ class Input extends StatefulWidget {
   final String? hint;
   final BorderSide? borderSide;
   final TextStyle? style;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
   final void Function(String) onChanged;
 
   const Input({
@@ -20,6 +23,8 @@ class Input extends StatefulWidget {
     this.hint,
     this.borderSide,
     this.style,
+    this.keyboardType,
+    this.inputFormatters,
     required this.onChanged,
   });
 
@@ -52,10 +57,10 @@ class _InputState extends State<Input> {
 
   @override
   Widget build(BuildContext context) {
-    double? height = widget.height?? 24.r;
+    double? height = widget.height ?? 24.r;
     BorderSide? borderSide =
         widget.borderSide ?? const BorderSide(color: Colors.grey);
-    TextStyle style = widget.style??TextStyle(fontSize: 14.r);
+    TextStyle style = widget.style ?? TextStyle(fontSize: 14.r);
     int maxLines = 1;
     double vertical = 0;
     if (widget.maxLines) {
@@ -71,6 +76,8 @@ class _InputState extends State<Input> {
         cursorHeight: (height ?? 24.r) * .5,
         style: style,
         maxLines: maxLines,
+        keyboardType: widget.keyboardType,
+        inputFormatters: widget.inputFormatters,
         onChanged: (String text_) {
           text = text_;
           widget.onChanged(text_);
@@ -78,7 +85,7 @@ class _InputState extends State<Input> {
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide:
-            borderSide.copyWith(color: borderSide.color.withOpacity(.5)),
+                borderSide.copyWith(color: borderSide.color.withOpacity(.5)),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: borderSide,
