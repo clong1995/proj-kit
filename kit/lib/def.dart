@@ -74,6 +74,7 @@ class Kit {
     BorderSide? borderSide,
     String? text,
     String? hint,
+    TextStyle? style,
     required void Function(String) onChanged,
   }) input;
 

@@ -8,6 +8,7 @@ class Input extends StatefulWidget {
   final String? text;
   final String? hint;
   final BorderSide? borderSide;
+  final TextStyle? style;
   final void Function(String) onChanged;
 
   const Input({
@@ -18,6 +19,7 @@ class Input extends StatefulWidget {
     this.text,
     this.hint,
     this.borderSide,
+    this.style,
     required this.onChanged,
   });
 
@@ -53,6 +55,7 @@ class _InputState extends State<Input> {
     double? height = widget.height;
     BorderSide? borderSide =
         widget.borderSide ?? const BorderSide(color: Colors.grey);
+    TextStyle style = TextStyle(fontSize: 14.r);
     int maxLines = 1;
     double vertical = 0;
     if (widget.maxLines) {
@@ -66,7 +69,7 @@ class _InputState extends State<Input> {
       child: TextField(
         controller: controller,
         cursorHeight: (height ?? 24.r) * .5,
-        style: TextStyle(fontSize: (height ?? 24.r) * .5),
+        style: style,
         maxLines: maxLines,
         onChanged: (String text_) {
           text = text_;
