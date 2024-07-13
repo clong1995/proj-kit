@@ -20,7 +20,7 @@ class ToolBar extends StatelessWidget {
       color: Colors.white,
       child: Row(
         children: [
-          Icon(Icons.tune),
+          const Icon(Icons.tune),
           if (title.isNotEmpty) Text(" $title"),
           for (int i = 0; i < children.length; i++) ...[
             children[i],

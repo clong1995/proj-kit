@@ -28,7 +28,7 @@ ThemeData appTheme({Color? color}) {
         color: Colors.black,
       ),
       shape: Border(
-        bottom: BorderSide(color: backgroundColor, width: isMobile ? 1.r : 5.r),
+        bottom: BorderSide(color: backgroundColor, width: 1.r),
       ),
     ),
     iconTheme: IconThemeData(size: 18.r),

@@ -1,4 +1,4 @@
 cd ../../app || exit
-flutter pub get
+flutter clean
 flutter pub upgrade
 flutter run

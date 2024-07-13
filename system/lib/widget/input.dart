@@ -3,17 +3,21 @@ import 'package:rpx/ext.dart';
 
 class Input extends StatefulWidget {
   final double? width;
+  final double? height;
   final bool maxLines;
   final String? text;
   final String? hint;
+  final BorderSide? borderSide;
   final void Function(String) onChanged;
 
   const Input({
     super.key,
     this.width,
+    this.height,
     this.maxLines = false,
     this.text,
     this.hint,
+    this.borderSide,
     required this.onChanged,
   });
 
@@ -24,6 +28,7 @@ class Input extends StatefulWidget {
 class _InputState extends State<Input> {
   String? text;
   TextEditingController? controller;
+  double? height;
 
   @override
   void initState() {
@@ -45,7 +50,9 @@ class _InputState extends State<Input> {
 
   @override
   Widget build(BuildContext context) {
-    double? height = 24.r;
+    double? height = widget.height;
+    BorderSide? borderSide =
+        widget.borderSide ?? const BorderSide(color: Colors.grey);
     int maxLines = 1;
     double vertical = 0;
     if (widget.maxLines) {
@@ -58,7 +65,8 @@ class _InputState extends State<Input> {
       height: height,
       child: TextField(
         controller: controller,
-        style: TextStyle(fontSize: 14.r),
+        cursorHeight: (height ?? 24.r) * .5,
+        style: TextStyle(fontSize: (height ?? 24.r) * .5),
         maxLines: maxLines,
         onChanged: (String text_) {
           text = text_;
@@ -66,10 +74,11 @@ class _InputState extends State<Input> {
         },
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade300),
+            borderSide:
+                borderSide.copyWith(color: borderSide.color.withOpacity(.5)),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade400),
+            borderSide: borderSide,
           ),
           contentPadding: EdgeInsets.symmetric(
             horizontal: 10.r,

@@ -69,7 +69,9 @@ class Kit {
   //输入框
   final Widget Function({
     double? width,
+    double? height,
     bool maxLines,
+    BorderSide? borderSide,
     String? text,
     String? hint,
     required void Function(String) onChanged,
@@ -88,13 +90,12 @@ class Kit {
   }) searchInput;
 
   //表格
-  final Widget Function({
-    required List<double> cellsWidth,
-    required List<List<Widget>> data,
-    double headerHeight,
-    double cellHeight,
-    BorderSide? borderSide
-  }) table;
+  final Widget Function(
+      {required List<double> cellsWidth,
+      required List<List<Widget>> data,
+      double headerHeight,
+      double cellHeight,
+      BorderSide? borderSide}) table;
 
   //凭证
   final Future<void> Function({
