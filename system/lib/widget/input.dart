@@ -55,7 +55,7 @@ class _InputState extends State<Input> {
     double? height = widget.height?? 24.r;
     BorderSide? borderSide =
         widget.borderSide ?? const BorderSide(color: Colors.grey);
-    TextStyle style = TextStyle(fontSize: 14.r);
+    TextStyle style = widget.style??TextStyle(fontSize: 14.r);
     int maxLines = 1;
     double vertical = 0;
     if (widget.maxLines) {
