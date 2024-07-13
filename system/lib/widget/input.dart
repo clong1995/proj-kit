@@ -52,7 +52,7 @@ class _InputState extends State<Input> {
 
   @override
   Widget build(BuildContext context) {
-    double? height = widget.height;
+    double? height = widget.height?? 24.r;
     BorderSide? borderSide =
         widget.borderSide ?? const BorderSide(color: Colors.grey);
     TextStyle style = TextStyle(fontSize: 14.r);
@@ -78,7 +78,7 @@ class _InputState extends State<Input> {
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide:
-                borderSide.copyWith(color: borderSide.color.withOpacity(.5)),
+            borderSide.copyWith(color: borderSide.color.withOpacity(.5)),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: borderSide,

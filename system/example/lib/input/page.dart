@@ -12,7 +12,6 @@ class InputPage extends StatelessWidget {
         title: const Text("输入框"),
       ),
       body: Input(
-        height: 40.r,
         onChanged: (String text) {},
       ),
     );
