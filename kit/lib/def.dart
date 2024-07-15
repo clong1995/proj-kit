@@ -105,7 +105,7 @@ class Kit {
     required String secretAccessKey,
     required String userID,
   }) authInit;
-  final Future<bool?> Function(String name) authLoad;
+  final Future<bool?> Function() authLoad;
   final Future<void> Function() authClean;
   final bool Function() authState;
 

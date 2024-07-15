@@ -1,16 +1,17 @@
-import 'package:encrypt/encrypt.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+import 'dart:typed_data';
 
-import 'guid.dart';
+import 'package:crypto/crypto.dart';
+import 'package:encrypt/encrypt.dart';
+import 'package:guid/guid.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class _Auth {
   static const String ak = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
   static const String sk = "AAAAAAAAAAA";
-  static const String vi = "code yuchenglong";
   static String accessKeyID = "";
   static String userID = "";
   static String secretAccessKey = "";
-  static String key = "";
 }
 
 class Auth {
@@ -22,18 +23,16 @@ class Auth {
 
   static late SharedPreferences _prefs;
 
-  static final IV _iv = IV.fromUtf8(_Auth.vi);
+  static final IV _iv = IV(_lenBytes("Code By HuaZhimeng",16));
 
   //从本地加载凭证
-  static Future<bool?> load(String key) async {
+  static Future<bool?> load() async {
     _prefs = await SharedPreferences.getInstance();
-    _Auth.key = "__$key";
-    String content = _prefs.getString(_Auth.key) ?? "";
+    String content = _prefs.getString("__auth") ?? "";
     if (content.isEmpty) {
       return false;
     }
 
-    // 解密
     Encrypted encrypted = Encrypted.fromBase64(content);
     Encrypter encrypter = await _encrypter();
     String decrypted = encrypter.decrypt(encrypted, iv: _iv);
@@ -93,12 +92,24 @@ class Auth {
         "${_Auth.accessKeyID}\n${_Auth.secretAccessKey}\n${_Auth.userID}",
         iv: _iv);
 
-    return await _prefs.setString(_Auth.key, encrypted.base64);
+    return await _prefs.setString("__auth", encrypted.base64);
   }
 
   static Future<Encrypter> _encrypter() async {
-    String id = (await guid()).padRight(32).substring(0, 32);
-    Key key = Key.fromUtf8(id);
-    return Encrypter(AES(key, mode: AESMode.cbc));
+    String id = await Guid.id;
+    Key key = Key(_lenBytes(id, 32));
+    return Encrypter(AES(key));
+  }
+
+
+  static Uint8List _lenBytes(String input,int len){
+    List<int>  inputBytes = utf8.encode(input);
+    if (inputBytes.length < len) {
+      inputBytes = List<int>.from(inputBytes)..addAll(List<int>.filled(len - inputBytes.length, 0));
+    }
+    else if (inputBytes.length > len) {
+      inputBytes = inputBytes.sublist(0, len);
+    }
+    return Uint8List.fromList(inputBytes);
   }
 }

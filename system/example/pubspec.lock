@@ -200,6 +200,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  guid:
+    dependency: transitive
+    description:
+      path: guid
+      ref: HEAD
+      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
+      url: "https://github.com/clong1995/flutter_ui.git"
+    source: git
+    version: "0.0.2"
   http:
     dependency: transitive
     description:
@@ -237,7 +246,7 @@ packages:
     description:
       path: kit
       ref: HEAD
-      resolved-ref: ddfc961a7980c3c78213e73b0b9814468cf03014
+      resolved-ref: cad4343e24809ea033021a17bdddb616db1a462e
       url: "https://github.com/clong1995/proj-kit.git"
     source: git
     version: "0.0.8"
@@ -318,7 +327,7 @@ packages:
     description:
       path: package
       ref: HEAD
-      resolved-ref: f02448c29bdf4e362b7d0c0087008443f9ac0efb
+      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.2"
@@ -415,7 +424,7 @@ packages:
     description:
       path: rpx
       ref: HEAD
-      resolved-ref: f02448c29bdf4e362b7d0c0087008443f9ac0efb
+      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.1.3"
@@ -596,7 +605,7 @@ packages:
     description:
       path: ui_adapt_box
       ref: HEAD
-      resolved-ref: f02448c29bdf4e362b7d0c0087008443f9ac0efb
+      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.1"
@@ -605,10 +614,10 @@ packages:
     description:
       path: ui_table
       ref: HEAD
-      resolved-ref: f02448c29bdf4e362b7d0c0087008443f9ac0efb
+      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
-    version: "0.0.3"
+    version: "0.0.4"
   uuid:
     dependency: transitive
     description:

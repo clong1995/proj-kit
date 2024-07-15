@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rpx/ext.dart';
 import 'package:system/widget/input.dart';
 
 class InputPage extends StatelessWidget {
