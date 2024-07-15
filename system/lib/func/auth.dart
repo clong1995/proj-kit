@@ -26,7 +26,7 @@ class Auth {
   static final IV _iv = IV(_lenBytes("Code By HuaZhimeng",16));
 
   //从本地加载凭证
-  static Future<bool?> load() async {
+  static Future<bool> load() async {
     _prefs = await SharedPreferences.getInstance();
     String content = _prefs.getString("__auth") ?? "";
     if (content.isEmpty) {

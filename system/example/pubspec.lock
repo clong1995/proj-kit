@@ -246,10 +246,10 @@ packages:
     description:
       path: kit
       ref: HEAD
-      resolved-ref: cad4343e24809ea033021a17bdddb616db1a462e
+      resolved-ref: f4fad12057934b83670dee907d1dbde5bfe36323
       url: "https://github.com/clong1995/proj-kit.git"
     source: git
-    version: "0.0.8"
+    version: "0.0.9"
   leak_tracker:
     dependency: transitive
     description:
@@ -567,7 +567,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.8"
+    version: "0.0.9"
   term_glyph:
     dependency: transitive
     description:
