@@ -22,6 +22,7 @@ import 'widget/alert/info.dart';
 import 'widget/cached_image.dart';
 import 'widget/input.dart';
 import 'widget/search_input.dart';
+import 'widget/toast.dart';
 import 'widget/tool_bar.dart';
 
 Future<void> kitInit(
@@ -88,6 +89,11 @@ Future<void> kitInit(
 
     //请求
     nio: nio,
+
+    //Toast
+    toast:Toast.show,
+    toastLoading:Toast.loading,
+    toastDismiss:Toast.dismiss,
 
     //路由操作
     push: Nav.push,

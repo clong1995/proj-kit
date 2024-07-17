@@ -3,9 +3,10 @@ import 'package:toastification/toastification.dart';
 
 Widget builder(BuildContext context, Widget? child) {
   //toast
-  child = ToastificationConfigProvider(
+  child = ToastificationWrapper(
     config: const ToastificationConfig(
       alignment: Alignment.center,
+        itemWidth:200,
     ),
     child: child!,
   );

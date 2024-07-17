@@ -70,12 +70,12 @@ Future<Map<String, dynamic>> send(
     } on TimeoutException catch (e) {
       _log(url, paramSig, jsonString, "$e");
       res["state"] = "接口超时";
-      Toast.failed(res["state"]);
+      Toast.show(res["state"]);
       return res;
     } catch (e) {
       _log(url, paramSig, jsonString, "$e");
       res["state"] = "接口请求失败";
-      Toast.failed(res["state"]);
+      Toast.show(res["state"]);
       return res;
     } finally {
       //请求结束，关闭loading等待
@@ -98,12 +98,12 @@ Future<Map<String, dynamic>> send(
     } on TimeoutException catch (e) {
       _log(url, paramSig, jsonString, "$e");
       res["state"] = "接口超时";
-      Toast.failed(res["state"]);
+      Toast.show(res["state"]);
       return res;
     } catch (e) {
       _log(url, paramSig, jsonString, "$e");
       res["state"] = "接口请求失败";
-      Toast.failed(res["state"]);
+      Toast.show(res["state"]);
       return res;
     } finally {
       //请求结束，关闭loading等待
@@ -120,7 +120,7 @@ Future<Map<String, dynamic>> send(
   if (code != 200) {
     res["state"] = "接口错误码:$code";
     _log(url, paramSig, jsonString, res["state"]);
-    Toast.failed(res["state"]);
+    Toast.show(res["state"]);
     if (code == 406) {
       //签名错误
       //Auth.clean();
@@ -133,7 +133,7 @@ Future<Map<String, dynamic>> send(
     //没有签名
     res["state"] = "接口没有签名";
     _log(url, paramSig, jsonString, res["state"]);
-    Toast.failed(res["state"]);
+    Toast.show(res["state"]);
     return res;
   }
 
@@ -141,7 +141,7 @@ Future<Map<String, dynamic>> send(
   if (!_verifySign(body, sig)) {
     res["state"] = "接口签名错误";
     _log(url, paramSig, jsonString, res["state"]);
-    Toast.failed(res["state"]);
+    Toast.show(res["state"]);
     return res;
   }
 
@@ -153,7 +153,7 @@ Future<Map<String, dynamic>> send(
   if (state == null) {
     res["state"] = "未发现state字段,返回值不满足序列化条件";
     _log(url, paramSig, jsonString, res["state"]);
-    Toast.failed(res["state"]);
+    Toast.show(res["state"]);
     return res;
   }
 
@@ -161,7 +161,7 @@ Future<Map<String, dynamic>> send(
   if (state != "OK") {
     res["state"] = state;
     _log(url, paramSig, jsonString, res["state"]);
-    Toast.failed(res["state"]);
+    Toast.show(res["state"]);
     return res;
   }
 
@@ -170,7 +170,7 @@ Future<Map<String, dynamic>> send(
   if (timestamp == null) {
     res["state"] = "未发现timestamp字段,返回值不满足序列化条件";
     _log(url, paramSig, jsonString, res["state"]);
-    Toast.failed(res["state"]);
+    Toast.show(res["state"]);
     return res;
   }
   /* int now = DateTime.now().millisecondsSinceEpoch ~/ 1000;
@@ -179,7 +179,7 @@ Future<Map<String, dynamic>> send(
   if (!(st - 5 <= now && now <= st + 10)) {
     res["state"] = "请求失效";
     _log(url, paramSig, jsonString, res["state"]);
-    Toast.failed(res["state"]);
+    Toast.show(res["state"]);
     return res;
   }*/
 

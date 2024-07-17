@@ -1,3 +1,4 @@
+import 'package:example/toast/page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -53,6 +54,10 @@ class MyHomePage extends StatelessWidget {
           ListTile(
             title: const Text("输入框"),
             onTap: () => Nav.push(context, () => const InputPage()),
+          ),
+          ListTile(
+            title: const Text("Toast"),
+            onTap: () => Nav.push(context, () => const ToastPage()),
           ),
         ],
       ),

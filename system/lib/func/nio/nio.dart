@@ -20,7 +20,7 @@ Future<T> nio<S extends BaseReq, T extends BaseRes>(
 
   if (uri.isEmpty) {
     res.state = "url为空";
-    Toast.failed(res.state);
+    Toast.show(res.state);
     return res;
   }
 

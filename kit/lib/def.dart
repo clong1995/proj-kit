@@ -128,6 +128,11 @@ class Kit {
   final T? Function<T>(BuildContext context) routeArgs;
   final String Function() sid;
 
+  //toast
+  final void Function(String msg) toast;
+  final void Function(String msg) toastLoading;
+  final void Function() toastDismiss;
+
   const Kit({
     //单位
     required this.rpx,
@@ -171,6 +176,11 @@ class Kit {
     required this.pushAndRemove,
     required this.pop,
     required this.routeArgs,
+
+    //toast
+    required this.toast,
+    required this.toastLoading,
+    required this.toastDismiss,
 
     //唯一id
     required this.sid,
