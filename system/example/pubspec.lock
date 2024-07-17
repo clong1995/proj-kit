@@ -205,7 +205,7 @@ packages:
     description:
       path: guid
       ref: HEAD
-      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
+      resolved-ref: af5f3e16e51e35816d83cfdc77dab4019f19830d
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.2"
@@ -213,10 +213,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: "761a297c042deedc1ffbb156d6e2af13886bb305c2a343a4d972504cd67dd938"
+      sha256: b9c29a161230ee03d3ccf545097fccd9b87a5264228c5d348202e0f0c28f9010
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.2"
   http_parser:
     dependency: transitive
     description:
@@ -246,7 +246,7 @@ packages:
     description:
       path: kit
       ref: HEAD
-      resolved-ref: f4fad12057934b83670dee907d1dbde5bfe36323
+      resolved-ref: "19393ee8833e9cf0a9b4ac9c33741a678f46cd4f"
       url: "https://github.com/clong1995/proj-kit.git"
     source: git
     version: "0.0.9"
@@ -327,7 +327,7 @@ packages:
     description:
       path: package
       ref: HEAD
-      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
+      resolved-ref: af5f3e16e51e35816d83cfdc77dab4019f19830d
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.2"
@@ -424,7 +424,7 @@ packages:
     description:
       path: rpx
       ref: HEAD
-      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
+      resolved-ref: af5f3e16e51e35816d83cfdc77dab4019f19830d
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.1.3"
@@ -605,7 +605,7 @@ packages:
     description:
       path: ui_adapt_box
       ref: HEAD
-      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
+      resolved-ref: af5f3e16e51e35816d83cfdc77dab4019f19830d
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.1"
@@ -614,10 +614,10 @@ packages:
     description:
       path: ui_table
       ref: HEAD
-      resolved-ref: "70ce5dd9cdd365872121a1fa1e91a0fdc1ce1f17"
+      resolved-ref: af5f3e16e51e35816d83cfdc77dab4019f19830d
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
-    version: "0.0.4"
+    version: "0.0.5"
   uuid:
     dependency: transitive
     description:
