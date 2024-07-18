@@ -8,6 +8,7 @@ class Toast {
       showProgressBar: false,
       autoCloseDuration: const Duration(seconds: 2),
       animationDuration: Duration.zero,
+      pauseOnHover: false,
     );
   }
 

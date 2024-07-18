@@ -15,7 +15,8 @@ class ToastPage extends StatelessWidget {
           FilledButton(
             child: const Text("show"),
             onPressed: () {
-              Toast.show("showshowshowshowshowshowshowshowshowshowshowshow");
+              Toast.show("show");
+              Toast.show("show1");
             },
           ),
         ],
