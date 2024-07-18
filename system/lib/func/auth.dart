@@ -60,6 +60,17 @@ class Auth {
     return await _set();
   }
 
+  //临时凭证
+  static void initWeak({
+    required String accessKeyID,
+    required String secretAccessKey,
+    required String userID,
+  }) async {
+    _Auth.accessKeyID = accessKeyID;
+    _Auth.secretAccessKey = secretAccessKey;
+    _Auth.userID = userID;
+  }
+
   //清除凭证
   static Future<bool> clean() async {
     _Auth.accessKeyID = _Auth.ak;

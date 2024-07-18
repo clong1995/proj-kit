@@ -84,6 +84,7 @@ Future<void> kitInit(
     table:UiTable.new,
     //凭证
     authInit: Auth.init,
+    authInitWeak: Auth.initWeak,
     authLoad: Auth.load,
     authClean: Auth.clean,
     authState: Auth.state,

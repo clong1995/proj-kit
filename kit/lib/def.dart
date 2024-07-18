@@ -105,6 +105,11 @@ class Kit {
     required String secretAccessKey,
     required String userID,
   }) authInit;
+  final void Function({
+    required String accessKeyID,
+    required String secretAccessKey,
+    required String userID,
+  }) authInitWeak;
   final Future<bool> Function() authLoad;
   final Future<void> Function() authClean;
   final bool Function() authState;
@@ -165,6 +170,7 @@ class Kit {
     //凭证
     required this.authLoad,
     required this.authInit,
+    required this.authInitWeak,
     required this.authClean,
     required this.authState,
 
