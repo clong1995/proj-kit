@@ -31,7 +31,7 @@ Future<Map<String, dynamic>> send(
 }) async {
   //loading
   bool loading = false;
-  Timer timer = Timer(const Duration(seconds: 5), () {
+  Timer timer = Timer(const Duration(seconds: 3), () {
     loading = true;
     Toast.loading("处理中...");
   });
@@ -115,7 +115,7 @@ Future<Map<String, dynamic>> send(
       //请求结束，关闭loading等待
       timer.cancel();
       if (loading) {
-        Toast.dismiss();
+        //Toast.dismiss();
       }
     }
     code = resp.statusCode;
