@@ -29,6 +29,7 @@ Future<void> kitInit(
     Iterable<Register Function()> registers, {
       //请求地址的host，如 https://api.abc.com
       required String host,
+      required String userAgent,
       //null:根据屏幕自动适配,
       //0:不使用适配
       //数字: 按照指定大小适配
@@ -48,7 +49,7 @@ Future<void> kitInit(
   }));
 
   //设置全局的请求host
-  sendHost(host);
+  sendHost(host,userAgent);
 
   //竖屏
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

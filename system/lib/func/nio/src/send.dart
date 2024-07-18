@@ -9,8 +9,9 @@ import '../../auth.dart';
 import '../../md5.dart';
 
 String _host = "";
+String _userAgent = "";
 
-void sendHost(String host) {
+void sendHost(String host,String userAgent) {
   String urlPattern = r'^(https?:\/\/)?' // 协议
       r'((([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,})|' // 域名
       r'((\d{1,3}\.){3}\d{1,3}))' // 或者IP地址
@@ -20,6 +21,7 @@ void sendHost(String host) {
     throw "host 格式错误 $host";
   }
   _host = host;
+  _userAgent = userAgent;
 }
 
 Future<Map<String, dynamic>> send(
@@ -89,10 +91,14 @@ Future<Map<String, dynamic>> send(
     body = await resp.stream.bytesToString();
   } else {
     Response resp;
+    Map<String, String> headers = {"content-sign": paramSig};
+    if (!kIsWeb) {
+      headers["User-Agent"] = _userAgent;
+    }
     try {
       resp = await post(
         url,
-        // headers: headers,
+        headers: headers,
         body: jsonString,
       ).timeout(const Duration(seconds: 10));
     } on TimeoutException catch (e) {
