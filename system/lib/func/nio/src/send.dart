@@ -115,7 +115,7 @@ Future<Map<String, dynamic>> send(
       //请求结束，关闭loading等待
       timer.cancel();
       if (loading) {
-        //Toast.dismiss();
+        Toast.dismiss();
       }
     }
     code = resp.statusCode;
