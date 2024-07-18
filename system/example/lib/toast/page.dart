@@ -19,6 +19,12 @@ class ToastPage extends StatelessWidget {
               Toast.show("show1");
             },
           ),
+          FilledButton(
+            child: const Text("loading"),
+            onPressed: () {
+              Toast.loading("loading");
+            },
+          ),
         ],
       ),
     );
