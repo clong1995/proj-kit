@@ -88,6 +88,7 @@ Future<void> kitInit(
     authLoad: Auth.load,
     authClean: Auth.clean,
     authState: Auth.state,
+    authUid: Auth.uid,
 
     //请求
     nio: nio,

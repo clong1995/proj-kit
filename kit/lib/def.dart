@@ -113,6 +113,7 @@ class Kit {
   final Future<bool> Function() authLoad;
   final Future<void> Function() authClean;
   final bool Function() authState;
+  final String Function() authUid;
 
   //请求
   final Future<T> Function<S extends BaseReq, T extends BaseRes>(
@@ -173,6 +174,7 @@ class Kit {
     required this.authInitWeak,
     required this.authClean,
     required this.authState,
+    required this.authUid,
 
     //请求
     required this.nio,

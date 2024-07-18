@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:guid/guid.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -89,6 +88,8 @@ class Auth {
   }
 
   static bool state() => _state;
+
+  static String uid() => _Auth.userID;
 
   static Future<bool> _set() async {
     if (!_state) {
