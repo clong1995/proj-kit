@@ -116,6 +116,12 @@ class Kit {
   final String Function() authUid;
 
   //请求
+  final Widget Function({
+    required String title,
+    void Function()? onTap,
+  }) deleteButton;
+
+  //请求
   final Future<T> Function<S extends BaseReq, T extends BaseRes>(
     String uri, {
     S? req,
@@ -175,6 +181,9 @@ class Kit {
     required this.authClean,
     required this.authState,
     required this.authUid,
+
+    //删除安妮
+    required this.deleteButton,
 
     //请求
     required this.nio,

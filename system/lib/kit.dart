@@ -20,6 +20,7 @@ import 'widget/alert/custom.dart';
 import 'widget/alert/delete.dart';
 import 'widget/alert/info.dart';
 import 'widget/cached_image.dart';
+import 'widget/delete_button.dart';
 import 'widget/input.dart';
 import 'widget/search_input.dart';
 import 'widget/toast.dart';
@@ -89,6 +90,8 @@ Future<void> kitInit(
     authClean: Auth.clean,
     authState: Auth.state,
     authUid: Auth.uid,
+    //删除安妮
+    deleteButton:DeleteButton.new,
 
     //请求
     nio: nio,
