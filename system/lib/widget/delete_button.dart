@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kit/rpx.dart';
+import 'package:rpx/ext.dart';
 
 class DeleteButton extends StatelessWidget {
   final String title;

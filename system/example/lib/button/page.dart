@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:system/widget/check_button.dart';
 
 class ButtonPage extends StatelessWidget {
   const ButtonPage({super.key});
@@ -11,7 +12,14 @@ class ButtonPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          OutlinedButton(onPressed: (){}, child: Text("OutlinedButton")),
+          OutlinedButton(onPressed: () {}, child: Text("OutlinedButton")),
+          CheckButton(
+            checked: true,
+            onTap: (bool value) {
+              print(value);
+            },
+            title: 'CheckButton',
+          ),
         ],
       ),
     );
