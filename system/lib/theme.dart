@@ -96,6 +96,7 @@ ThemeData appTheme({Color? color}) {
         textStyle: textStyle,
         minimumSize: Size(24.r, 24.r),
         shape: RoundedRectangleBorder(
+          side: BorderSide(color: color),
           borderRadius: BorderRadius.circular(5.r),
         ),
       ),

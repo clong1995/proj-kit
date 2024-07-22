@@ -47,6 +47,11 @@ Future<T> nio<S extends BaseReq, T extends BaseRes>(
 
   res.data = data;
   //序列化数据
+  try{
   res.fromJson();
+  }catch (e){
+    Toast.show(e.toString());
+    rethrow;
+  }
   return res;
 }
