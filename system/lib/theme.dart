@@ -96,8 +96,18 @@ ThemeData appTheme({Color? color}) {
         textStyle: textStyle,
         minimumSize: Size(24.r, 24.r),
         shape: RoundedRectangleBorder(
-          side: BorderSide(color: color),
           borderRadius: BorderRadius.circular(5.r),
+        ),
+      ).copyWith(
+        side: WidgetStateProperty.resolveWith<BorderSide>(
+              (Set<WidgetState> states) {
+            return BorderSide(
+              color: (states.contains(WidgetState.disabled))
+                  ? Colors.grey.shade400
+                  : const Color.fromRGBO(96, 173, 249, 1),
+            );
+            // Defer to the widget's default.
+          },
         ),
       ),
     ),
