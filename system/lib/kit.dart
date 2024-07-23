@@ -20,6 +20,7 @@ import 'widget/alert/custom.dart';
 import 'widget/alert/delete.dart';
 import 'widget/alert/info.dart';
 import 'widget/cached_image.dart';
+import 'widget/check_button.dart';
 import 'widget/delete_button.dart';
 import 'widget/input.dart';
 import 'widget/search_input.dart';
@@ -27,15 +28,15 @@ import 'widget/toast.dart';
 import 'widget/tool_bar.dart';
 
 Future<void> kitInit(
-    Iterable<Register Function()> registers, {
-      //请求地址的host，如 https://api.abc.com
-      required String host,
-      required String userAgent,
-      //null:根据屏幕自动适配,
-      //0:不使用适配
-      //数字: 按照指定大小适配
-      double? rpx,
-    }) async {
+  Iterable<Register Function()> registers, {
+  //请求地址的host，如 https://api.abc.com
+  required String host,
+  required String userAgent,
+  //null:根据屏幕自动适配,
+  //0:不使用适配
+  //数字: 按照指定大小适配
+  double? rpx,
+}) async {
   //系统设置
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarBrightness: Brightness.dark,
@@ -45,12 +46,12 @@ Future<void> kitInit(
 
   //注册包
   Package.register(registers.map((Register Function() element) => () {
-    Register r = element();
-    return reg.Register(r.name, r.packageBuilder);
-  }));
+        Register r = element();
+        return reg.Register(r.name, r.packageBuilder);
+      }));
 
   //设置全局的请求host
-  sendHost(host,userAgent);
+  sendHost(host, userAgent);
 
   //竖屏
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -78,11 +79,11 @@ Future<void> kitInit(
     //输入框
     input: Input.new,
     //工具栏
-    toolBar:ToolBar.new,
+    toolBar: ToolBar.new,
     //搜索框
-    searchInput:SearchInput.new,
+    searchInput: SearchInput.new,
     //表格
-    table:UiTable.new,
+    table: UiTable.new,
     //凭证
     authInit: Auth.init,
     authInitWeak: Auth.initWeak,
@@ -90,16 +91,18 @@ Future<void> kitInit(
     authClean: Auth.clean,
     authState: Auth.state,
     authUid: Auth.uid,
-    //删除安妮
-    deleteButton:DeleteButton.new,
+    //删除按钮
+    deleteButton: DeleteButton.new,
+    //选择按钮
+    checkButton: CheckButton.new,
 
     //请求
     nio: nio,
 
     //Toast
-    toast:Toast.show,
-    toastLoading:Toast.loading,
-    toastDismiss:Toast.dismiss,
+    toast: Toast.show,
+    toastLoading: Toast.loading,
+    toastDismiss: Toast.dismiss,
 
     //路由操作
     push: Nav.push,
