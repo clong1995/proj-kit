@@ -5,6 +5,8 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
+import 'package:system/widget/drop_button.dart';
+import 'package:system/widget/multiple_drop_button.dart';
 import 'package:ui_adapt_box/ui_adapt_box.dart';
 import 'package:ui_table/ui_table.dart';
 
@@ -95,6 +97,8 @@ Future<void> kitInit(
     deleteButton: DeleteButton.new,
     //选择按钮
     checkButton: CheckButton.new,
+    dropButton: DropButton.new,
+    multipleDropButton:MultipleDropButton.new,
 
     //请求
     nio: nio,

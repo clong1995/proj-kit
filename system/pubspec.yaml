@@ -51,6 +51,7 @@ dependencies:
   toastification: ^2.0.0
   #唯一id
   xid: ^1.2.1
+  dropdown_button2: ^2.3.9
 
 dev_dependencies:
   flutter_test:
