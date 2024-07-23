@@ -69,7 +69,7 @@ class _DropButtonState<T> extends State<DropButton<T>> {
             });
           },
           buttonStyleData: const ButtonStyleData(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 5),
             height: 40,
             width: 140,
           ),
