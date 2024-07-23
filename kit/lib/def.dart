@@ -143,7 +143,7 @@ class Kit {
   }) multipleDropButton;
 
   // 日期选择
-  final Widget Function<T>({
+  final Widget Function({
     required DateTime initial,
     required DateTime first,
     required DateTime last,
