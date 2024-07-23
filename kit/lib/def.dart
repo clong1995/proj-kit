@@ -142,6 +142,15 @@ class Kit {
     ValueChanged<List<T>>? onChanged,
   }) multipleDropButton;
 
+  // 日期选择
+  final Widget Function<T>({
+    required DateTime initial,
+    required DateTime first,
+    required DateTime last,
+    required void Function(DateTime) onChanged,
+    bool useRootNavigator,
+  }) datePicker;
+
   //请求
   final Future<T> Function<S extends BaseReq, T extends BaseRes>(
     String uri, {
@@ -208,6 +217,9 @@ class Kit {
     required this.checkButton,
     required this.dropButton,
     required this.multipleDropButton,
+
+    // 日期按钮
+    required this.datePicker,
 
     //请求
     required this.nio,
