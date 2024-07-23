@@ -122,7 +122,7 @@ class Kit {
   }) deleteButton;
 
   final Widget Function({
-    required String title,
+    required Widget title,
     bool checked,
     void Function(bool)? onTap,
   }) checkButton;

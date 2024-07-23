@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rpx/ext.dart';
 
 class CheckButton extends StatefulWidget {
-  final String title;
+  final Widget title;
   final bool checked;
   final void Function(bool)? onTap;
 
@@ -48,13 +48,7 @@ class _CheckButtonState extends State<CheckButton> {
           SizedBox(
             width: 5.r,
           ),
-          Text(
-            widget.title,
-            style: TextStyle(
-              color: Colors.grey.shade900,
-              fontSize: 13.r,
-            ),
-          ),
+          widget.title,
           SizedBox(
             width: 5.r,
           ),

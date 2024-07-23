@@ -18,7 +18,7 @@ class ButtonPage extends StatelessWidget {
             onTap: (bool value) {
               print(value);
             },
-            title: 'CheckButton',
+            title: Text('CheckButton'),
           ),
         ],
       ),
