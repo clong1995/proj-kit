@@ -124,7 +124,7 @@ class Kit {
   final Widget Function({
     required String title,
     bool checked,
-    void Function()? onTap,
+    void Function(bool)? onTap,
   }) checkButton;
 
   //请求
