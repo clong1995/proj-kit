@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rpx/ext.dart';
 
 class DeleteButton extends StatelessWidget {
-  final String title;
+  final Widget title;
   final void Function()? onTap;
 
   const DeleteButton({
@@ -27,13 +27,7 @@ class DeleteButton extends StatelessWidget {
           SizedBox(
             width: 5.r,
           ),
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.grey.shade900,
-              fontSize: 13.r,
-            ),
-          ),
+          title,
           SizedBox(
             width: 5.r,
           ),

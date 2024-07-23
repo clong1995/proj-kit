@@ -115,12 +115,13 @@ class Kit {
   final bool Function() authState;
   final String Function() authUid;
 
-  //请求
+  //删除按钮
   final Widget Function({
-    required String title,
+    required Widget title,
     void Function()? onTap,
   }) deleteButton;
 
+  //选择按钮
   final Widget Function({
     required Widget title,
     bool checked,
