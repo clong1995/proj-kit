@@ -1,6 +1,7 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
+
 import 'package:flutter/material.dart';
 import 'package:system/widget/check_button.dart';
+import 'package:system/widget/date_picker.dart';
 import 'package:system/widget/drop_button.dart';
 import 'package:system/widget/drop_check_menu.dart';
 import 'package:system/widget/drop_menu.dart';
@@ -50,12 +51,14 @@ class _ButtonPageState extends State<ButtonPage> {
               selectedKeys: const [1],
               onChanged: (res) => print(res),
             ),
-            DropButton<int>(items: {1:'小学',2:'初中',3:'大学'},value: 1,),
-            Container(
-              height: 800,
-              width: double.infinity,
-              color: Colors.red,
-            )
+            SizedBox(
+              width: 90,
+              child: DropButton<int>(items: {1:'小学',2:'初中',3:'大学利迈纳的'})),
+           
+           DatePicker(initial: DateTime.now(), first: DateTime.now().add(const Duration(days: -30)), last: DateTime.now().add(const Duration(days: 30)), onChanged: (d){
+            print(d);
+           })
+
           ],
         ),
       ),

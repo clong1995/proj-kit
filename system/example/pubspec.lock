@@ -241,6 +241,22 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.19.0"
+  jiffy:
+    dependency: transitive
+    description:
+      name: jiffy
+      sha256: "3497caaa36d36a29033e66803c9739ce6bccbc7e241ca46070f76ee9e6f6eb0c"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "6.3.1"
   js:
     dependency: transitive
     description:
@@ -254,10 +270,10 @@ packages:
     description:
       path: kit
       ref: HEAD
-      resolved-ref: af79fc06e808322831a6be1f76f9b4df4cf4a71d
+      resolved-ref: "223bfb02f672de6d8229aea5155ca1d7ebf50d28"
       url: "https://github.com/clong1995/proj-kit.git"
     source: git
-    version: "0.0.11"
+    version: "0.0.12"
   leak_tracker:
     dependency: transitive
     description:
@@ -575,7 +591,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.11"
+    version: "0.0.12"
   term_glyph:
     dependency: transitive
     description:
