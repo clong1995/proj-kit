@@ -128,6 +128,20 @@ class Kit {
     void Function(bool)? onTap,
   }) checkButton;
 
+  // 下拉按钮
+  final Widget Function<T>({
+    T? value,
+    Map<T, String> items,
+    ValueChanged<T?>? onChanged,
+  }) dropButton;
+
+  final Widget Function<T>({
+    Map<T, String> items,
+    List<T> selectedKeys,
+    double? width,
+    ValueChanged<List<T>>? onChanged,
+  }) multipleDropButton;
+
   //请求
   final Future<T> Function<S extends BaseReq, T extends BaseRes>(
     String uri, {
@@ -192,6 +206,8 @@ class Kit {
     //删除按钮
     required this.deleteButton,
     required this.checkButton,
+    required this.dropButton,
+    required this.multipleDropButton,
 
     //请求
     required this.nio,
