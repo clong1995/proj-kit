@@ -41,6 +41,7 @@ dependencies:
     git:
       url: https://github.com/clong1995/flutter_ui.git
       path: rpx
+  dropdown_button2: ^2.3.9
 
 dev_dependencies:
   flutter_test:
