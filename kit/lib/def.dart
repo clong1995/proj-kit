@@ -131,13 +131,13 @@ class Kit {
   // 下拉按钮
   final Widget Function<T>({
     T? value,
-    Map<T, String> items,
+    required Map<T, String> items,
     ValueChanged<T?>? onChanged,
   }) dropButton;
 
   final Widget Function<T>({
-    Map<T, String> items,
-    List<T> selectedKeys,
+    required Map<T, String> items,
+    required List<T> selectedKeys,
     double? width,
     ValueChanged<List<T>>? onChanged,
   }) multipleDropButton;
