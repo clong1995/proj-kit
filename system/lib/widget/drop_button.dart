@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:rpx/ext.dart';
 
 class DropButton<T> extends StatefulWidget {
   final T? value;
@@ -36,7 +37,7 @@ class _DropButtonState<T> extends State<DropButton<T>> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 30,
+      height: 35.r,
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black26),
           color: Colors.white,
@@ -44,21 +45,14 @@ class _DropButtonState<T> extends State<DropButton<T>> {
       child: DropdownButtonHideUnderline(
         child: DropdownButton2<T>(
           isExpanded: true,
-          hint: Text(
+          hint: const Text(
             '请选择',
-            style: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).hintColor,
-            ),
           ),
           items: items
               .map((item) => DropdownMenuItem<T>(
                     value: item,
                     child: Text(
                       widget.items[item]!,
-                      style: const TextStyle(
-                        fontSize: 14,
-                      ),
                     ),
                   ))
               .toList(),
@@ -68,13 +62,14 @@ class _DropButtonState<T> extends State<DropButton<T>> {
               selectedValue = value;
             });
           },
-          buttonStyleData: const ButtonStyleData(
-            padding: EdgeInsets.symmetric(horizontal: 5),
-            height: 40,
-            width: 140,
+          buttonStyleData:  ButtonStyleData(
+            padding: EdgeInsets.only(left: 8.r,right: 5.r),
+            width: 90.r,
+            height: 35.r,
+      
           ),
-          menuItemStyleData: const MenuItemStyleData(
-            height: 40,
+          menuItemStyleData: MenuItemStyleData(
+            height: 35.r,
           ),
         ),
       ),

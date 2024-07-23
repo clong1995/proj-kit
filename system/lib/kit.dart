@@ -5,8 +5,6 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
-import 'package:system/widget/drop_button.dart';
-import 'package:system/widget/multiple_drop_button.dart';
 import 'package:ui_adapt_box/ui_adapt_box.dart';
 import 'package:ui_table/ui_table.dart';
 
@@ -23,8 +21,11 @@ import 'widget/alert/delete.dart';
 import 'widget/alert/info.dart';
 import 'widget/cached_image.dart';
 import 'widget/check_button.dart';
+import 'widget/date_picker.dart';
 import 'widget/delete_button.dart';
+import 'widget/drop_button.dart';
 import 'widget/input.dart';
+import 'widget/multiple_drop_button.dart';
 import 'widget/search_input.dart';
 import 'widget/toast.dart';
 import 'widget/tool_bar.dart';
@@ -99,6 +100,8 @@ Future<void> kitInit(
     checkButton: CheckButton.new,
     dropButton: DropButton.new,
     multipleDropButton:MultipleDropButton.new,
+    // 日期选择
+    datePicker: DatePicker.new,
 
     //请求
     nio: nio,

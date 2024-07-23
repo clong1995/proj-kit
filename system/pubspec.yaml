@@ -52,6 +52,7 @@ dependencies:
   #唯一id
   xid: ^1.2.1
   dropdown_button2: ^2.3.9
+  jiffy: ^6.3.1
 
 dev_dependencies:
   flutter_test:
