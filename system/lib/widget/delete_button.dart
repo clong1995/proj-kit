@@ -15,7 +15,9 @@ class DeleteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color = Theme.of(context).primaryColor;
     return Container(
-      height: 24.r,
+      constraints:BoxConstraints(
+        minHeight: 24.r
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5.r),
