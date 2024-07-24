@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:system/widget/check_button.dart';
 import 'package:system/widget/date_picker.dart';
+import 'package:system/widget/delete_button.dart';
 import 'package:system/widget/drop_button.dart';
 import 'package:system/widget/drop_check_menu.dart';
 import 'package:system/widget/drop_menu.dart';
@@ -24,7 +25,9 @@ class _ButtonPageState extends State<ButtonPage> {
         child: Column(
           children: [
             OutlinedButton(
-                onPressed: () {}, child: const Text("OutlinedButton")),
+              onPressed: () {},
+              child: const Text("OutlinedButton"),
+            ),
             CheckButton(
               checked: true,
               onTap: (bool value) {
@@ -39,28 +42,36 @@ class _ButtonPageState extends State<ButtonPage> {
               ),
             ),
             SizedBox(
-                width: 120,
-                child: DropCheckMenu<int>(
-                    onChanged: (res) {
-                      print(res);
-                    },
-                    items: const {1: '艺术', 2: '美术', 3: '语文', 4: '英语', 5: '数学'},
-                    selectedKeys: const [])),
+              width: 120,
+              child: DropCheckMenu<int>(
+                onChanged: (res) {
+                  print(res);
+                },
+                items: const {1: '艺术', 2: '美术', 3: '语文', 4: '英语', 5: '数学'},
+                selectedKeys: const [],
+              ),
+            ),
             MultipleDropButton<int>(
               items: const {1: "以色列", 2: "法国", 3: '阿塞拜疆'},
               selectedKeys: const [1],
               onChanged: (res) => print(res),
             ),
             const SizedBox(
-                width: 90,
-                child: DropButton<int>(items: {1: '小学', 2: '初中', 3: '大学利迈纳的'})),
+              width: 90,
+              child: DropButton<int>(
+                items: {1: '小学', 2: '初中', 3: '大学利迈纳的'},
+              ),
+            ),
             DatePicker(
-                initial: DateTime.now(),
-                first: DateTime.now().add(const Duration(days: -30)),
-                last: DateTime.now().add(const Duration(days: 30)),
-                onChanged: (d) {
-                  print(d);
-                })
+              initial: DateTime.now(),
+              first: DateTime.now().add(const Duration(days: -30)),
+              last: DateTime.now().add(const Duration(days: 30)),
+              onChanged: (d) {
+                print(d);
+              },
+            ),
+            const DeleteButton(title: Text("Delete\nButton")),
+            const CheckButton(title: Text("DeleteButton")),
           ],
         ),
       ),
