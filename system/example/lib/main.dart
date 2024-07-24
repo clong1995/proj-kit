@@ -62,7 +62,7 @@ class MyHomePage extends StatelessWidget {
           ),
           ListTile(
             title: const Text("按钮"),
-            onTap: () => Nav.push(context, () => const ButtonPage()),
+            onTap: () => Nav.push(context, () =>  ButtonPage()),
           ),
         ],
       ),

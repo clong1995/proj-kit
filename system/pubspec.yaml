@@ -1,6 +1,6 @@
 name: system
 description: A new Flutter project.
-version: 0.0.11
+version: 0.0.12
 homepage: system
 publish_to: none
 
@@ -51,6 +51,8 @@ dependencies:
   toastification: ^2.0.0
   #唯一id
   xid: ^1.2.1
+  dropdown_button2: ^2.3.9
+  jiffy: ^6.3.1
 
 dev_dependencies:
   flutter_test:
