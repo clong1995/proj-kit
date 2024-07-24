@@ -7,6 +7,7 @@ class DropMenu<T> extends StatefulWidget {
   final ValueChanged<T?>? onChanged;
   final double? width;
   final double? height;
+
   DropMenu(
       {super.key,
       this.value,
@@ -23,6 +24,7 @@ class DropMenu<T> extends StatefulWidget {
 
 class _DropMenuState<T> extends State<DropMenu<T>> {
   T? value;
+
   @override
   void initState() {
     super.initState();
@@ -55,7 +57,11 @@ class _DropMenuState<T> extends State<DropMenu<T>> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Expanded(child: Text(value == null ? "未选择" : widget.items[value]!,overflow: TextOverflow.ellipsis,)),
+              Expanded(
+                  child: Text(
+                value == null ? "未选择" : widget.items[value]!,
+                overflow: TextOverflow.ellipsis,
+              )),
               IconButton(
                 hoverColor: Colors.transparent,
                 onPressed: () {

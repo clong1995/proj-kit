@@ -36,7 +36,9 @@ class _SearchInputState extends State<SearchInput> {
       ),
       child: Row(
         children: [
-          SizedBox(width: 5.r,),
+          SizedBox(
+            width: 5.r,
+          ),
           Icon(
             Icons.search,
             size: 16.r,

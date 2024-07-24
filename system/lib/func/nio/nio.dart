@@ -10,11 +10,11 @@ import 'src/send.dart';
 
 //方便kit使用
 Future<T> nio<S extends BaseReq, T extends BaseRes>(
-    String uri, {
-      S? req,
-      T? res,
-      Uint8List? binary,
-    }) async {
+  String uri, {
+  S? req,
+  T? res,
+  Uint8List? binary,
+}) async {
   //初始化返回值
   res ??= EmptyRes() as T;
 
@@ -47,9 +47,9 @@ Future<T> nio<S extends BaseReq, T extends BaseRes>(
 
   res.data = data;
   //序列化数据
-  try{
-  res.fromJson();
-  }catch (e){
+  try {
+    res.fromJson();
+  } catch (e) {
     Toast.show(e.toString());
     rethrow;
   }

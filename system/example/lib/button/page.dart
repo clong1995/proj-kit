@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:system/widget/check_button.dart';
 import 'package:system/widget/date_picker.dart';
@@ -8,7 +7,7 @@ import 'package:system/widget/drop_menu.dart';
 import 'package:system/widget/multiple_drop_button.dart';
 
 class ButtonPage extends StatefulWidget {
-  ButtonPage({super.key});
+  const ButtonPage({super.key});
 
   @override
   State<ButtonPage> createState() => _ButtonPageState();
@@ -24,13 +23,14 @@ class _ButtonPageState extends State<ButtonPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            OutlinedButton(onPressed: () {}, child: Text("OutlinedButton")),
+            OutlinedButton(
+                onPressed: () {}, child: const Text("OutlinedButton")),
             CheckButton(
               checked: true,
               onTap: (bool value) {
                 print(value);
               },
-              title: Text('CheckButton'),
+              title: const Text('CheckButton'),
             ),
             SizedBox(
               width: 90,
@@ -51,14 +51,16 @@ class _ButtonPageState extends State<ButtonPage> {
               selectedKeys: const [1],
               onChanged: (res) => print(res),
             ),
-            SizedBox(
-              width: 90,
-              child: DropButton<int>(items: {1:'小学',2:'初中',3:'大学利迈纳的'})),
-           
-           DatePicker(initial: DateTime.now(), first: DateTime.now().add(const Duration(days: -30)), last: DateTime.now().add(const Duration(days: 30)), onChanged: (d){
-            print(d);
-           })
-
+            const SizedBox(
+                width: 90,
+                child: DropButton<int>(items: {1: '小学', 2: '初中', 3: '大学利迈纳的'})),
+            DatePicker(
+                initial: DateTime.now(),
+                first: DateTime.now().add(const Duration(days: -30)),
+                last: DateTime.now().add(const Duration(days: 30)),
+                onChanged: (d) {
+                  print(d);
+                })
           ],
         ),
       ),

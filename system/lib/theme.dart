@@ -100,7 +100,7 @@ ThemeData appTheme({Color? color}) {
         ),
       ).copyWith(
         side: WidgetStateProperty.resolveWith<BorderSide>(
-              (Set<WidgetState> states) {
+          (Set<WidgetState> states) {
             return BorderSide(
               color: (states.contains(WidgetState.disabled))
                   ? Colors.grey.shade400
