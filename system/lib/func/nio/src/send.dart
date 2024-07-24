@@ -11,7 +11,7 @@ import '../../md5.dart';
 String _host = "";
 String _userAgent = "";
 
-void sendHost(String host,String userAgent) {
+void sendHost(String host, String userAgent) {
   String urlPattern = r'^(https?:\/\/)?' // 协议
       r'((([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,})|' // 域名
       r'((\d{1,3}\.){3}\d{1,3}))' // 或者IP地址

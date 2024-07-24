@@ -100,7 +100,7 @@ Future<void> kitInit(
     //选择按钮
     checkButton: CheckButton.new,
     dropButton: DropButton.new,
-    multipleDropButton:MultipleDropButton.new,
+    multipleDropButton: MultipleDropButton.new,
     // 日期选择
     datePicker: DatePicker.new,
     dateToStr: DateTimeFormat.toStr,

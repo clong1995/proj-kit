@@ -22,7 +22,7 @@ class Auth {
 
   static late SharedPreferences _prefs;
 
-  static final IV _iv = IV(_lenBytes("Code By HuaZhimeng",16));
+  static final IV _iv = IV(_lenBytes("Code By HuaZhimeng", 16));
 
   //从本地加载凭证
   static Future<bool> load() async {
@@ -112,13 +112,12 @@ class Auth {
     return Encrypter(AES(key));
   }
 
-
-  static Uint8List _lenBytes(String input,int len){
-    List<int>  inputBytes = utf8.encode(input);
+  static Uint8List _lenBytes(String input, int len) {
+    List<int> inputBytes = utf8.encode(input);
     if (inputBytes.length < len) {
-      inputBytes = List<int>.from(inputBytes)..addAll(List<int>.filled(len - inputBytes.length, 0));
-    }
-    else if (inputBytes.length > len) {
+      inputBytes = List<int>.from(inputBytes)
+        ..addAll(List<int>.filled(len - inputBytes.length, 0));
+    } else if (inputBytes.length > len) {
       inputBytes = inputBytes.sublist(0, len);
     }
     return Uint8List.fromList(inputBytes);

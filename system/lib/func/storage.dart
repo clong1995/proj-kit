@@ -27,8 +27,8 @@ class Storage {
     return _prefs?.containsKey(key);
   }
 
-  void _forbidden(key){
-    if(key.startsWith("_")){
+  void _forbidden(key) {
+    if (key.startsWith("_")) {
       throw "do not start with _";
     }
   }

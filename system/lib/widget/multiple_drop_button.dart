@@ -22,6 +22,7 @@ class _MultipleDropButtonState<T> extends State<MultipleDropButton<T>> {
   List<T> items = [];
 
   List<T> selectedItems = [];
+
   @override
   void initState() {
     super.initState();
@@ -97,9 +98,7 @@ class _MultipleDropButtonState<T> extends State<MultipleDropButton<T>> {
           }).toList(),
           //Use last selected item as the current value so if we've limited menu height, it scroll to last item.
           value: selectedItems.isEmpty ? null : selectedItems.last,
-          onChanged: (value) {
-    
-          },
+          onChanged: (value) {},
           selectedItemBuilder: (context) {
             return items.map(
               (item) {

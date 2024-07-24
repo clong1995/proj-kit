@@ -6,12 +6,14 @@ class DropCheckMenu<T> extends StatefulWidget {
   final bool isExpanded;
   final ValueChanged<List<T>>? onChanged;
   final double? width;
+
   const DropCheckMenu(
       {super.key,
       required this.selectedKeys,
       required this.items,
       this.isExpanded = false,
-      this.onChanged, this.width});
+      this.onChanged,
+      this.width});
 
   @override
   State<DropCheckMenu<T>> createState() => _DropCheckMenuState<T>();
@@ -19,6 +21,7 @@ class DropCheckMenu<T> extends StatefulWidget {
 
 class _DropCheckMenuState<T> extends State<DropCheckMenu<T>> {
   List<T> _selectedKeys = [];
+
   @override
   void initState() {
     super.initState();
@@ -46,7 +49,7 @@ class _DropCheckMenuState<T> extends State<DropCheckMenu<T>> {
           return widget.items.entries.map((e) {
             return CheckedPopupMenuItem<T>(
               value: e.key,
-              onTap: (){},
+              onTap: () {},
               checked: _selectedKeys.contains(e.key),
               child: Text(e.value),
             );

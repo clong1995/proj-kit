@@ -36,7 +36,7 @@ class _CheckButtonState extends State<CheckButton> {
   Widget build(BuildContext context) {
     Color color = Theme.of(context).primaryColor;
     return Container(
-      height: 24.r,
+      constraints: BoxConstraints(minHeight: 24.r),
       decoration: BoxDecoration(
         color: checked ? color.withOpacity(.1) : Colors.white,
         borderRadius: BorderRadius.circular(5.r),

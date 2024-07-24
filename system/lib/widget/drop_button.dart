@@ -21,6 +21,7 @@ class DropButton<T> extends StatefulWidget {
 class _DropButtonState<T> extends State<DropButton<T>> {
   T? selectedValue;
   List<T> items = [];
+
   @override
   void initState() {
     super.initState();
@@ -63,11 +64,10 @@ class _DropButtonState<T> extends State<DropButton<T>> {
             });
             if (widget.onChanged != null) widget.onChanged!(value);
           },
-          buttonStyleData:  ButtonStyleData(
-            padding: EdgeInsets.only(left: 8.r,right: 5.r),
+          buttonStyleData: ButtonStyleData(
+            padding: EdgeInsets.only(left: 8.r, right: 5.r),
             width: 90.r,
             height: 35.r,
-      
           ),
           menuItemStyleData: MenuItemStyleData(
             height: 35.r,

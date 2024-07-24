@@ -14,7 +14,7 @@ class Md5 {
   }
 
   //文件
-  static  Future<String?> file(String filePath) async {
+  static Future<String?> file(String filePath) async {
     File file = File(filePath);
     if (!await file.exists()) {
       return null;
@@ -26,7 +26,7 @@ class Md5 {
     return byte(bytes);
   }
 
-  static  String byte(Uint8List bytes) {
+  static String byte(Uint8List bytes) {
     Digest digest = md5.convert(bytes);
     return digest.toString();
   }
