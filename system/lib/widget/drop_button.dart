@@ -61,6 +61,7 @@ class _DropButtonState<T> extends State<DropButton<T>> {
             setState(() {
               selectedValue = value;
             });
+            if (widget.onChanged != null) widget.onChanged!(value);
           },
           buttonStyleData:  ButtonStyleData(
             padding: EdgeInsets.only(left: 8.r,right: 5.r),
