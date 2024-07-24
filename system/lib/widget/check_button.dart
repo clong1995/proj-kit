@@ -44,6 +44,7 @@ class _CheckButtonState extends State<CheckButton> {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
             width: 5.r,
