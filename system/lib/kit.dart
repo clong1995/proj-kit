@@ -5,6 +5,7 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
+import 'package:system/func/datetime_format.dart';
 import 'package:ui_adapt_box/ui_adapt_box.dart';
 import 'package:ui_table/ui_table.dart';
 
@@ -102,6 +103,7 @@ Future<void> kitInit(
     multipleDropButton:MultipleDropButton.new,
     // 日期选择
     datePicker: DatePicker.new,
+    dateToStr: DateTimeFormat.toStr,
 
     //请求
     nio: nio,
