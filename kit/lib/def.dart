@@ -178,6 +178,9 @@ class Kit {
   final void Function(String msg) toastLoading;
   final void Function() toastDismiss;
 
+  // 文件选择
+  final Future<List<int>?> Function({List<String>? allowedExtensions})  pickFile;
+
   const Kit({
     //单位
     required this.rpx,
@@ -239,6 +242,8 @@ class Kit {
     required this.toast,
     required this.toastLoading,
     required this.toastDismiss,
+    // 文件选择
+    required this.pickFile,
 
     //唯一id
     required this.sid,
