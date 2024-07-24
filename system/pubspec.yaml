@@ -53,6 +53,7 @@ dependencies:
   xid: ^1.2.1
   dropdown_button2: ^2.3.9
   jiffy: ^6.3.1
+  file_picker: ^8.0.6
 
 dev_dependencies:
   flutter_test:

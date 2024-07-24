@@ -6,6 +6,7 @@ import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
 import 'package:system/func/datetime_format.dart';
+import 'package:system/func/file_picker.dart';
 import 'package:ui_adapt_box/ui_adapt_box.dart';
 import 'package:ui_table/ui_table.dart';
 
@@ -118,6 +119,7 @@ Future<void> kitInit(
     pushAndRemove: Nav.pushAndRemove,
     pop: Nav.pop,
     routeArgs: Nav.routeArgs,
+    pickFile: FilePickerWrapper.pickFile,
     //唯一ID
     sid: sid,
   );
