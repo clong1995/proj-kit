@@ -151,6 +151,9 @@ class Kit {
     bool useRootNavigator,
   }) datePicker;
 
+  // 日期对象转化为字符串
+  final String Function(DateTime dateTime, String pattern) dateToStr;
+
   //请求
   final Future<T> Function<S extends BaseReq, T extends BaseRes>(
     String uri, {
@@ -220,6 +223,8 @@ class Kit {
 
     // 日期按钮
     required this.datePicker,
+    // 日期转化为字符串
+    required this.dateToStr,
 
     //请求
     required this.nio,
