@@ -23,7 +23,7 @@ dependencies:
     git:
       url: https://github.com/clong1995/flutter_ui.git
       path: rpx
-  ui_adapt_box:
+  ui_adapt:
     git:
       url: https://github.com/clong1995/flutter_ui.git
       path: ui_adapt
