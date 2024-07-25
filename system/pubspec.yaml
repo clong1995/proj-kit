@@ -26,7 +26,7 @@ dependencies:
   ui_adapt_box:
     git:
       url: https://github.com/clong1995/flutter_ui.git
-      path: ui_adapt_box
+      path: ui_adapt
   ui_table:
     git:
       url: https://github.com/clong1995/flutter_ui.git
