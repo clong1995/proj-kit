@@ -180,6 +180,8 @@ class Kit {
 
   // 文件选择
   final Future<List<int>?> Function({List<String>? allowedExtensions})  pickFile;
+  // 链接下载
+  final Future<void> Function({required String url, required String filename}) downloadFile;
 
   const Kit({
     //单位
@@ -244,6 +246,7 @@ class Kit {
     required this.toastDismiss,
     // 文件选择
     required this.pickFile,
+    required this.downloadFile,
 
     //唯一id
     required this.sid,
