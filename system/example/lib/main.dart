@@ -8,6 +8,7 @@ import 'package:system/func/nav.dart';
 import 'package:system/theme.dart';
 
 import 'button/page.dart';
+import 'func/func_page.dart';
 import 'input/page.dart';
 
 Future<void> main() async {
@@ -63,6 +64,10 @@ class MyHomePage extends StatelessWidget {
           ListTile(
             title: const Text("按钮"),
             onTap: () => Nav.push(context, () => const ButtonPage()),
+          ),
+           ListTile(
+            title: const Text("功能"),
+            onTap: () => Nav.push(context, () => const FuncPage()),
           ),
         ],
       ),
