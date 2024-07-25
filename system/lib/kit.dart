@@ -7,7 +7,7 @@ import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
 import 'package:system/func/datetime_format.dart';
 import 'package:system/func/file_picker.dart';
-import 'package:ui_adapt_box/ui_adapt_box.dart';
+import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_table/ui_table.dart';
 
 import 'builder.dart';
@@ -74,7 +74,7 @@ Future<void> kitInit(
     //网络图片
     cachedImage: CachedImage.image,
     //自适应
-    adaptBox: UiAdaptBox.new,
+    adaptBox: UiAdapt.new,
     //弹窗
     alertConfirm: confirm,
     alertDelete: delete,
