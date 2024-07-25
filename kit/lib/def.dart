@@ -181,7 +181,7 @@ class Kit {
   // 文件选择
   final Future<List<int>?> Function({List<String>? allowedExtensions})  pickFile;
   // 链接下载
-  final Future<void> Function({required String url, required String filename}) downloadFile;
+  final Future<String?> Function({required String url, required String filename}) downloadFile;
 
   const Kit({
     //单位

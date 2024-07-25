@@ -21,8 +21,8 @@ class FileDownloader {
   }
 
   // 直接下载到本地
-  static Future<void> downloadLinkFile({required String url, required String filename}) async {
+  static Future<String?> downloadLinkFile({required String url, required String filename}) async {
     final data = await downloadFile(url);
-    await file_download.saveFile(data, filename);
+    return await file_download.saveFile(data, filename);
   }
 }
