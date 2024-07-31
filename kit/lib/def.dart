@@ -182,7 +182,9 @@ class Kit {
   final Future<List<int>?> Function({List<String>? allowedExtensions})  pickFile;
   // 链接下载
   final Future<String?> Function({required String url, required String filename}) downloadFile;
-
+  final Future<Uint8List> Function(String url) networkFileBytes;
+  // 字节数据保存到本地
+  final Future<String?> Function(Uint8List data, String filename) saveFile;
   const Kit({
     //单位
     required this.rpx,
@@ -247,6 +249,8 @@ class Kit {
     // 文件选择
     required this.pickFile,
     required this.downloadFile,
+    required this.networkFileBytes,
+    required this.saveFile,
 
     //唯一id
     required this.sid,
