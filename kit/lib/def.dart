@@ -184,7 +184,7 @@ class Kit {
   final Future<String?> Function({required String url, required String filename}) downloadFile;
   final Future<Uint8List> Function(String url) networkFileBytes;
   // 字节数据保存到本地
-  final Future<String?> Function({required Uint8List data, required String filename}) saveFile;
+  final Future<String?> Function(Uint8List data, String filename) saveFile;
   const Kit({
     //单位
     required this.rpx,
