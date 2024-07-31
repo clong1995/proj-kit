@@ -35,7 +35,7 @@ class _CheckButtonState extends State<CheckButton> {
   @override
   Widget build(BuildContext context) {
     Color color = Theme.of(context).primaryColor;
-    return Container(
+    Container child = Container(
       constraints: BoxConstraints(minHeight: 24.r),
       decoration: BoxDecoration(
         color: checked ? color.withOpacity(.1) : Colors.white,
@@ -78,5 +78,11 @@ class _CheckButtonState extends State<CheckButton> {
         ],
       ),
     );
+    return widget.onTap == null
+        ? Opacity(
+            opacity: .5,
+            child: child,
+          )
+        : child;
   }
 }
