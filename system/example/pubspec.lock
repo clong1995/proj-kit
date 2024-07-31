@@ -162,7 +162,7 @@ packages:
     source: hosted
     version: "2.0.5"
   excel:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "."
       ref: HEAD
@@ -311,7 +311,7 @@ packages:
     description:
       path: kit
       ref: HEAD
-      resolved-ref: b68ed70836cb3e55cdb99b6424b6e1e4f639256e
+      resolved-ref: "86489dfb26b6e23adda3f30e706e8e731b812357"
       url: "https://github.com/clong1995/proj-kit.git"
     source: git
     version: "0.0.13"
