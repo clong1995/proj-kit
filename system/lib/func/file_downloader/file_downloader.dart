@@ -16,8 +16,8 @@ class FileDownloader {
   }
 
   // 适配保存文件的方法
-  static Future<void> saveFile(Uint8List data, String filename) async {
-    await file_download.saveFile(data, filename);
+  static Future<String?> saveFile(Uint8List data, String filename) async {
+   return await file_download.saveFile(data, filename);
   }
 
   // 直接下载到本地

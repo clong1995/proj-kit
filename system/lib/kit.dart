@@ -124,6 +124,7 @@ Future<void> kitInit(
     // 链接文件下载
     downloadFile: FileDownloader.downloadLinkFile,
     networkFileBytes: FileDownloader.downloadFile,
+    saveFile: FileDownloader.saveFile,
     //唯一ID
     sid: sid,
   );
