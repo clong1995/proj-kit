@@ -172,7 +172,7 @@ class Kit {
       {bool root, Object? args}) pushAndRemove;
   final T? Function<T>(BuildContext context) routeArgs;
   final String Function() sid;
-  final String Function({
+  final Widget Function({
     required String versionStore,
     required void Function() callBack,
   }) checkUpdate;
