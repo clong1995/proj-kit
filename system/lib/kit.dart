@@ -13,6 +13,7 @@ import 'package:ui_table/ui_table.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
+import 'func/check_update.dart';
 import 'func/nav.dart';
 import 'func/nio/nio.dart';
 import 'func/nio/src/send.dart';
@@ -127,5 +128,7 @@ Future<void> kitInit(
     saveFile: FileDownloader.saveFile,
     //唯一ID
     sid: sid,
+    //检查更新
+    checkUpdate: checkUpdate,
   );
 }

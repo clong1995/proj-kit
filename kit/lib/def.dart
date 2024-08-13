@@ -172,6 +172,10 @@ class Kit {
       {bool root, Object? args}) pushAndRemove;
   final T? Function<T>(BuildContext context) routeArgs;
   final String Function() sid;
+  final String Function({
+    required String versionStore,
+    required void Function() callBack,
+  }) checkUpdate;
 
   //toast
   final void Function(String msg) toast;
@@ -179,12 +183,16 @@ class Kit {
   final void Function() toastDismiss;
 
   // 文件选择
-  final Future<List<int>?> Function({List<String>? allowedExtensions})  pickFile;
+  final Future<List<int>?> Function({List<String>? allowedExtensions}) pickFile;
+
   // 链接下载
-  final Future<String?> Function({required String url, required String filename}) downloadFile;
+  final Future<String?> Function(
+      {required String url, required String filename}) downloadFile;
   final Future<Uint8List> Function(String url) networkFileBytes;
+
   // 字节数据保存到本地
   final Future<String?> Function(Uint8List data, String filename) saveFile;
+
   const Kit({
     //单位
     required this.rpx,
@@ -254,5 +262,7 @@ class Kit {
 
     //唯一id
     required this.sid,
+    //检查更新
+    required this.checkUpdate,
   });
 }
