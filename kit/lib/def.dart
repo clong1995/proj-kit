@@ -172,6 +172,7 @@ class Kit {
       {bool root, Object? args}) pushAndRemove;
   final T? Function<T>(BuildContext context) routeArgs;
   final String Function() sid;
+
   //更新
   final Future<Widget?> Function({
     required String versionStore,
@@ -194,76 +195,83 @@ class Kit {
   // 字节数据保存到本地
   final Future<String?> Function(Uint8List data, String filename) saveFile;
 
-  const Kit({
-    //单位
-    required this.rpx,
-    //主题
-    required this.appTheme,
-    //builder
-    required this.builder,
-    //获取包
-    required this.package,
-    //网络图片
-    required this.cachedImage,
-    required this.adaptBox,
+  //删除按钮
+  final PreferredSizeWidget Function({
+    required Widget chile,
+  }) desktopBar;
 
-    //弹窗
-    required this.alertConfirm,
-    required this.alertDelete,
-    required this.alertInfo,
-    required this.alertCustom,
-    required this.alertContent,
+  const Kit(
+      {
+      //单位
+      required this.rpx,
+      //主题
+      required this.appTheme,
+      //builder
+      required this.builder,
+      //获取包
+      required this.package,
+      //网络图片
+      required this.cachedImage,
+      required this.adaptBox,
 
-    //输入框
-    required this.input,
-    //工具栏
-    required this.toolBar,
-    //搜索框
-    required this.searchInput,
-    //表格
-    required this.table,
+      //弹窗
+      required this.alertConfirm,
+      required this.alertDelete,
+      required this.alertInfo,
+      required this.alertCustom,
+      required this.alertContent,
 
-    //凭证
-    required this.authLoad,
-    required this.authInit,
-    required this.authInitWeak,
-    required this.authClean,
-    required this.authState,
-    required this.authUid,
+      //输入框
+      required this.input,
+      //工具栏
+      required this.toolBar,
+      //搜索框
+      required this.searchInput,
+      //表格
+      required this.table,
 
-    //删除按钮
-    required this.deleteButton,
-    required this.checkButton,
-    required this.dropButton,
-    required this.multipleDropButton,
+      //凭证
+      required this.authLoad,
+      required this.authInit,
+      required this.authInitWeak,
+      required this.authClean,
+      required this.authState,
+      required this.authUid,
 
-    // 日期按钮
-    required this.datePicker,
-    // 日期转化为字符串
-    required this.dateToStr,
+      //删除按钮
+      required this.deleteButton,
+      required this.checkButton,
+      required this.dropButton,
+      required this.multipleDropButton,
 
-    //请求
-    required this.nio,
+      // 日期按钮
+      required this.datePicker,
+      // 日期转化为字符串
+      required this.dateToStr,
 
-    //路由操作
-    required this.push,
-    required this.pushAndRemove,
-    required this.pop,
-    required this.routeArgs,
+      //请求
+      required this.nio,
 
-    //toast
-    required this.toast,
-    required this.toastLoading,
-    required this.toastDismiss,
-    // 文件选择
-    required this.pickFile,
-    required this.downloadFile,
-    required this.networkFileBytes,
-    required this.saveFile,
+      //路由操作
+      required this.push,
+      required this.pushAndRemove,
+      required this.pop,
+      required this.routeArgs,
 
-    //唯一id
-    required this.sid,
-    //检查更新
-    required this.checkUpdate,
-  });
+      //toast
+      required this.toast,
+      required this.toastLoading,
+      required this.toastDismiss,
+      // 文件选择
+      required this.pickFile,
+      required this.downloadFile,
+      required this.networkFileBytes,
+      required this.saveFile,
+
+      //唯一id
+      required this.sid,
+      //检查更新
+      required this.checkUpdate,
+      //
+      required this.desktopBar});
 }

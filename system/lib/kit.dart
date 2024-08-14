@@ -8,6 +8,7 @@ import 'package:rpx/rpx.dart';
 import 'package:system/func/datetime_format.dart';
 import 'package:system/func/file_downloader/file_downloader.dart';
 import 'package:system/func/file_picker.dart';
+import 'package:system/widget/desktop_bar.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_table/ui_table.dart';
 import 'package:window_manager/window_manager.dart';
@@ -71,7 +72,6 @@ Future<void> kitInit(
     await windowManager.waitUntilReadyToShow(
         WindowOptions(
           size: windowSize,
-          center: true,
           minimumSize: windowSize,
           backgroundColor: Colors.transparent,
           titleBarStyle: TitleBarStyle.hidden,
@@ -149,5 +149,7 @@ Future<void> kitInit(
     sid: sid,
     //检查更新
     checkUpdate: checkUpdate,
+    //桌面bar
+    desktopBar: DesktopBar.new,
   );
 }
