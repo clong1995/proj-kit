@@ -201,7 +201,7 @@ class Kit {
   }) desktopBar;
 
   final Future<void> Function(String state) desktopState;
-  final void Function() desktopDragging;
+  final Future<void> Function() desktopDragging;
 
   const Kit({
     //单位
