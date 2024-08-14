@@ -311,7 +311,7 @@ packages:
     description:
       path: kit
       ref: HEAD
-      resolved-ref: "70637df4af1be4df0a813d390656bbba0c04041f"
+      resolved-ref: "255f734cb56a33e4c2b9db3429ae4a4662e277e7"
       url: "https://github.com/clong1995/proj-kit.git"
     source: git
     version: "0.0.13"

@@ -150,11 +150,11 @@ Future<void> kitInit(
     //检查更新
     checkUpdate: checkUpdate,
     //桌面bar
-    desktopBar: ({required Widget child}){
-      return PreferredSizeWidget(
-          preferredSize:Size.zero,
-        child: Text(),
+    /*desktopBar: ({required Widget child}) {
+      return DesktopBar(
+        child: child,
       );
-    },
+    },*/
+    desktopBar: DesktopBar.new,
   );
 }
