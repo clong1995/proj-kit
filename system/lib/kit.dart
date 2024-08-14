@@ -16,6 +16,7 @@ import 'package:window_manager/window_manager.dart';
 import 'builder.dart';
 import 'func/auth.dart';
 import 'func/check_update.dart';
+import 'func/desktop_state.dart';
 import 'func/nav.dart';
 import 'func/nio/nio.dart';
 import 'func/nio/src/send.dart';
@@ -150,11 +151,8 @@ Future<void> kitInit(
     //检查更新
     checkUpdate: checkUpdate,
     //桌面bar
-    /*desktopBar: ({required Widget child}) {
-      return DesktopBar(
-        child: child,
-      );
-    },*/
     desktopBar: DesktopBar.new,
+    //设置
+    desktopState: desktopState,
   );
 }
