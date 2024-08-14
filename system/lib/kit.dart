@@ -78,6 +78,7 @@ Future<void> kitInit(
           titleBarStyle: TitleBarStyle.hidden,
           windowButtonVisibility: false,
         ), () async {
+      await windowManager.setResizable(true);
       await windowManager.show();
       await windowManager.focus();
     });
