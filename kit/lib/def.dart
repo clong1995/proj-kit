@@ -197,7 +197,7 @@ class Kit {
 
   //删除按钮
   final PreferredSizeWidget Function({
-    required Widget chile,
+    required Widget child,
   }) desktopBar;
 
   const Kit(
