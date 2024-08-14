@@ -62,7 +62,7 @@ dependencies:
   package_info_plus: ^8.0.2
   path_provider: ^2.1.4
   path: ^1.9.0
-  window_manager: ^0.3.9 # <===0.4.0 窗口边缘没发调整
+  window_manager: 0.3.9 # <===0.4.0 窗口边缘没发调整
 
 dev_dependencies:
   flutter_test:
