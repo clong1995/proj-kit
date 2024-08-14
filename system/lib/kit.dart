@@ -10,6 +10,7 @@ import 'package:system/func/file_downloader/file_downloader.dart';
 import 'package:system/func/file_picker.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_table/ui_table.dart';
+import 'package:window_manager/window_manager.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
@@ -43,6 +44,8 @@ Future<void> kitInit(
   //0:不使用适配
   //数字: 按照指定大小适配
   double? rpx,
+  //窗体大小
+  Size? windowSize,
 }) async {
   //系统设置
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -62,6 +65,22 @@ Future<void> kitInit(
 
   //竖屏
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  if (windowSize != null) {
+    await windowManager.ensureInitialized();
+    await windowManager.waitUntilReadyToShow(
+        WindowOptions(
+          size: windowSize,
+          center: true,
+          minimumSize: windowSize,
+          backgroundColor: Colors.transparent,
+          titleBarStyle: TitleBarStyle.hidden,
+          windowButtonVisibility: false,
+        ), () async {
+      await windowManager.show();
+      await windowManager.focus();
+    });
+  }
 
   //单位
   Rpx.init(rpx);
