@@ -85,6 +85,7 @@ Future<void> kitInit(
         ), () async {
       await windowManager.show();
       await windowManager.focus();
+      await windowManager.setResizable(true);
     });
   }
 
