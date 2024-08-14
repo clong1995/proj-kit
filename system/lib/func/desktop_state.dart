@@ -23,3 +23,5 @@ Future<void> desktopState(String state) async {
       break;
   }
 }
+
+void desktopDragging = windowManager.startDragging;

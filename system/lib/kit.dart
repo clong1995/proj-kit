@@ -154,5 +154,6 @@ Future<void> kitInit(
     desktopBar: DesktopBar.new,
     //设置
     desktopState: desktopState,
+    desktopDragging: desktopDragging,
   );
 }

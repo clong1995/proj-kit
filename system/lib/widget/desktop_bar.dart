@@ -14,7 +14,7 @@ class DesktopBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      // onPanStart: (details) => windowManager.startDragging(),
+      //onPanStart: (details) => windowManager.startDragging(),
       child: child,
     );
   }

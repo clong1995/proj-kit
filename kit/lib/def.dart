@@ -201,6 +201,7 @@ class Kit {
   }) desktopBar;
 
   final Future<void> Function(String state) desktopState;
+  final void Function() desktopDragging;
 
   const Kit({
     //单位
@@ -276,5 +277,6 @@ class Kit {
     //
     required this.desktopBar,
     required this.desktopState,
+    required this.desktopDragging,
   });
 }
