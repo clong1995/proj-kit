@@ -57,7 +57,7 @@ dependencies:
   xid: ^1.2.1
   dropdown_button2: ^2.3.9
   jiffy: 6.2.1 #<==== 3.19.6 不兼容
-  file_picker: any
+  file_picker: 8.0.3
   # excel: ^4.0.3
   package_info_plus: ^8.0.2
   path_provider: ^2.1.4
