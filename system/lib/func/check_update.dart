@@ -32,7 +32,7 @@ Future<Widget?> checkUpdate({
     callBack();
     return null;
   }
-  _VersionData newVersion = versionList.first;
+  _VersionData newVersion = versionList.last;
   if (newVersion.version == appVersion) {
     callBack();
     return null;
