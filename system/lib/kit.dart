@@ -78,6 +78,7 @@ Future<void> kitInit(
     await windowManager.waitUntilReadyToShow(
         WindowOptions(
           size: windowSize,
+          center:true,
           minimumSize: windowSize,
           backgroundColor: Colors.transparent,
           titleBarStyle: TitleBarStyle.hidden,
