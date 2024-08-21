@@ -41,7 +41,7 @@ class _DropMenuState<T> extends State<DropMenu<T>> {
   Widget build(BuildContext context) {
     return MenuAnchor(
       style: const MenuStyle(
-        backgroundColor: WidgetStatePropertyAll(Colors.white),
+        backgroundColor: MaterialStatePropertyAll(Colors.white),
       ),
       builder:
           (BuildContext context, MenuController controller, Widget? child) {

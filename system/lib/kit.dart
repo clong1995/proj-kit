@@ -1,3 +1,4 @@
+import 'package:device/device.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kit/def.dart';
@@ -8,11 +9,15 @@ import 'package:rpx/rpx.dart';
 import 'package:system/func/datetime_format.dart';
 import 'package:system/func/file_downloader/file_downloader.dart';
 import 'package:system/func/file_picker.dart';
+import 'package:system/widget/desktop_bar.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_table/ui_table.dart';
+import 'package:window_manager/window_manager.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
+import 'func/check_update.dart';
+import 'func/desktop_state.dart';
 import 'func/nav.dart';
 import 'func/nio/nio.dart';
 import 'func/nio/src/send.dart';
@@ -42,6 +47,8 @@ Future<void> kitInit(
   //0:不使用适配
   //数字: 按照指定大小适配
   double? rpx,
+  //窗体大小
+  Size? windowSize,
 }) async {
   //系统设置
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -61,6 +68,27 @@ Future<void> kitInit(
 
   //竖屏
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  if (windowSize != null &&
+      (Device.platform == "windows" ||
+          Device.platform == "macOS" ||
+          Device.platform == "linux" ||
+          Device.platform == "fuchsia")) {
+    await windowManager.ensureInitialized();
+    await windowManager.waitUntilReadyToShow(
+        WindowOptions(
+          size: windowSize,
+          center:true,
+          minimumSize: windowSize,
+          backgroundColor: Colors.transparent,
+          titleBarStyle: TitleBarStyle.hidden,
+          windowButtonVisibility: false,
+        ), () async {
+      await windowManager.show();
+      await windowManager.focus();
+      await windowManager.setResizable(true);
+    });
+  }
 
   //单位
   Rpx.init(rpx);
@@ -127,5 +155,12 @@ Future<void> kitInit(
     saveFile: FileDownloader.saveFile,
     //唯一ID
     sid: sid,
+    //检查更新
+    checkUpdate: checkUpdate,
+    //桌面bar
+    desktopBar: DesktopBar.new,
+    //设置
+    desktopState: desktopState,
+    desktopDragging: desktopDragging,
   );
 }

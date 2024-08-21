@@ -173,18 +173,36 @@ class Kit {
   final T? Function<T>(BuildContext context) routeArgs;
   final String Function() sid;
 
+  //更新
+  final Future<Widget?> Function({
+    required String versionStore,
+    required void Function() callBack,
+  }) checkUpdate;
+
   //toast
   final void Function(String msg) toast;
   final void Function(String msg) toastLoading;
   final void Function() toastDismiss;
 
   // 文件选择
-  final Future<List<int>?> Function({List<String>? allowedExtensions})  pickFile;
+  final Future<List<int>?> Function({List<String>? allowedExtensions}) pickFile;
+
   // 链接下载
-  final Future<String?> Function({required String url, required String filename}) downloadFile;
+  final Future<String?> Function(
+      {required String url, required String filename}) downloadFile;
   final Future<Uint8List> Function(String url) networkFileBytes;
+
   // 字节数据保存到本地
   final Future<String?> Function(Uint8List data, String filename) saveFile;
+
+  //删除按钮
+  final PreferredSizeWidget Function({
+    required Widget child,
+  }) desktopBar;
+
+  final Future<void> Function(String state) desktopState;
+  final Future<void> Function() desktopDragging;
+
   const Kit({
     //单位
     required this.rpx,
@@ -254,5 +272,11 @@ class Kit {
 
     //唯一id
     required this.sid,
+    //检查更新
+    required this.checkUpdate,
+    //
+    required this.desktopBar,
+    required this.desktopState,
+    required this.desktopDragging,
   });
 }

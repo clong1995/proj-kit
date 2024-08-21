@@ -99,10 +99,10 @@ ThemeData appTheme({Color? color}) {
           borderRadius: BorderRadius.circular(5.r),
         ),
       ).copyWith(
-        side: WidgetStateProperty.resolveWith<BorderSide>(
-          (Set<WidgetState> states) {
+        side: MaterialStateProperty.resolveWith<BorderSide>(
+          (Set<MaterialState> states) {
             return BorderSide(
-              color: (states.contains(WidgetState.disabled))
+              color: (states.contains(MaterialState.disabled))
                   ? Colors.grey.shade400
                   : const Color.fromRGBO(96, 173, 249, 1),
             );
