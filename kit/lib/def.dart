@@ -203,6 +203,12 @@ class Kit {
   final Future<void> Function(String state) desktopState;
   final Future<void> Function() desktopDragging;
 
+  final Widget Function({
+    required Widget child,
+    bool keepAlive,
+    bool nestRoute,
+  }) pageViewItem;
+
   const Kit({
     //单位
     required this.rpx,
@@ -278,5 +284,7 @@ class Kit {
     required this.desktopBar,
     required this.desktopState,
     required this.desktopDragging,
+
+    required this.pageViewItem,
   });
 }
