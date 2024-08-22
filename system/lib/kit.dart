@@ -11,6 +11,7 @@ import 'package:system/func/file_downloader/file_downloader.dart';
 import 'package:system/func/file_picker.dart';
 import 'package:system/widget/desktop_bar.dart';
 import 'package:ui_adapt/ui_adapt.dart';
+import 'package:ui_page_view_item/ui_page_view_item.dart';
 import 'package:ui_table/ui_table.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -162,5 +163,7 @@ Future<void> kitInit(
     //设置
     desktopState: desktopState,
     desktopDragging: desktopDragging,
+
+    pageViewItem: UiPageViewItem.new
   );
 }
