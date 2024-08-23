@@ -17,6 +17,7 @@ import 'package:window_manager/window_manager.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
+import 'func/certificates.dart';
 import 'func/check_update.dart';
 import 'func/desktop_state.dart';
 import 'func/nav.dart';
@@ -51,6 +52,7 @@ Future<void> kitInit(
   //窗体大小
   Size? windowSize,
 }) async {
+  setCertificates();
   //系统设置
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarBrightness: Brightness.dark,
