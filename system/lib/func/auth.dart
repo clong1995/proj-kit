@@ -31,8 +31,12 @@ class Auth {
     if (content.isEmpty) {
       return false;
     }
-
-    Encrypted encrypted = Encrypted.fromBase64(content);
+    Encrypted encrypted;
+    try {
+      encrypted = Encrypted.fromBase64(content);
+    } catch (e) {
+      return false;
+    }
     Encrypter encrypter = await _encrypter();
     String decrypted;
     try {
