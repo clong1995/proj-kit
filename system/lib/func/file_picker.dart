@@ -4,7 +4,7 @@ import 'package:file_picker/file_picker.dart' as fp;
 import 'package:flutter/foundation.dart';
 
 class FilePickerWrapper {
- static Future<List<int>?> pickFile({List<String>? allowedExtensions}) async {
+  static Future<List<int>?> pickFile({List<String>? allowedExtensions}) async {
     final pickedFile = await fp.FilePicker.platform.pickFiles(
       type: fp.FileType.custom,
       allowedExtensions: allowedExtensions,

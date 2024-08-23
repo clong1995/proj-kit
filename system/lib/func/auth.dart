@@ -35,9 +35,9 @@ class Auth {
     Encrypted encrypted = Encrypted.fromBase64(content);
     Encrypter encrypter = await _encrypter();
     String decrypted;
-    try{
-       decrypted = encrypter.decrypt(encrypted, iv: _iv);
-    }catch(e){
+    try {
+      decrypted = encrypter.decrypt(encrypted, iv: _iv);
+    } catch (e) {
       return false;
     }
 

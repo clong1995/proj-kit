@@ -29,7 +29,7 @@ class _MultipleDropButtonState<T> extends State<MultipleDropButton<T>> {
     selectedItems = widget.selectedKeys.map((k) => k).toList();
     items = widget.items.entries.map((e) => e.key).toList();
   }
-  
+
   @override
   void didUpdateWidget(covariant MultipleDropButton<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -128,10 +128,8 @@ class _MultipleDropButtonState<T> extends State<MultipleDropButton<T>> {
             height: 40,
             width: widget.width,
           ),
-          dropdownStyleData:  DropdownStyleData(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10)
-            ),
+          dropdownStyleData: DropdownStyleData(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             offset: const Offset(0, -10),
             maxHeight: MediaQuery.of(context).size.height * .55,
           ),

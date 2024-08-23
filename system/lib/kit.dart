@@ -6,10 +6,6 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
-import 'package:system/func/datetime_format.dart';
-import 'package:system/func/file_downloader/file_downloader.dart';
-import 'package:system/func/file_picker.dart';
-import 'package:system/widget/desktop_bar.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_page_view_item/ui_page_view_item.dart';
 import 'package:ui_table/ui_table.dart';
@@ -19,7 +15,10 @@ import 'builder.dart';
 import 'func/auth.dart';
 import 'func/certificates.dart';
 import 'func/check_update.dart';
+import 'func/datetime_format.dart';
 import 'func/desktop_state.dart';
+import 'func/file_downloader/file_downloader.dart';
+import 'func/file_picker.dart';
 import 'func/nav.dart';
 import 'func/nio/nio.dart';
 import 'func/nio/src/send.dart';
@@ -33,6 +32,7 @@ import 'widget/cached_image.dart';
 import 'widget/check_button.dart';
 import 'widget/date_picker.dart';
 import 'widget/delete_button.dart';
+import 'widget/desktop_bar.dart';
 import 'widget/drop_button.dart';
 import 'widget/input.dart';
 import 'widget/multiple_drop_button.dart';
@@ -81,7 +81,7 @@ Future<void> kitInit(
     await windowManager.waitUntilReadyToShow(
         WindowOptions(
           size: windowSize,
-          center:true,
+          center: true,
           minimumSize: windowSize,
           backgroundColor: Colors.transparent,
           titleBarStyle: TitleBarStyle.hidden,
@@ -98,74 +98,72 @@ Future<void> kitInit(
 
   //初始化kit
   kit = Kit(
-    rpx: Rpx.rpx,
-    appTheme: appTheme(),
-    builder: builder,
-    //包管理
-    package: Package.package,
-    //网络图片
-    cachedImage: CachedImage.image,
-    //自适应
-    adaptBox: UiAdapt.new,
-    //弹窗
-    alertConfirm: confirm,
-    alertDelete: delete,
-    alertInfo: info,
-    alertCustom: custom,
-    alertContent: CustomContent.new,
-    //输入框
-    input: Input.new,
-    //工具栏
-    toolBar: ToolBar.new,
-    //搜索框
-    searchInput: SearchInput.new,
-    //表格
-    table: UiTable.new,
-    //凭证
-    authInit: Auth.init,
-    authInitWeak: Auth.initWeak,
-    authLoad: Auth.load,
-    authClean: Auth.clean,
-    authState: Auth.state,
-    authUid: Auth.uid,
-    //删除按钮
-    deleteButton: DeleteButton.new,
-    //选择按钮
-    checkButton: CheckButton.new,
-    dropButton: DropButton.new,
-    multipleDropButton: MultipleDropButton.new,
-    // 日期选择
-    datePicker: DatePicker.new,
-    dateToStr: DateTimeFormat.toStr,
+      rpx: Rpx.rpx,
+      appTheme: appTheme(),
+      builder: builder,
+      //包管理
+      package: Package.package,
+      //网络图片
+      cachedImage: CachedImage.image,
+      //自适应
+      adaptBox: UiAdapt.new,
+      //弹窗
+      alertConfirm: confirm,
+      alertDelete: delete,
+      alertInfo: info,
+      alertCustom: custom,
+      alertContent: CustomContent.new,
+      //输入框
+      input: Input.new,
+      //工具栏
+      toolBar: ToolBar.new,
+      //搜索框
+      searchInput: SearchInput.new,
+      //表格
+      table: UiTable.new,
+      //凭证
+      authInit: Auth.init,
+      authInitWeak: Auth.initWeak,
+      authLoad: Auth.load,
+      authClean: Auth.clean,
+      authState: Auth.state,
+      authUid: Auth.uid,
+      //删除按钮
+      deleteButton: DeleteButton.new,
+      //选择按钮
+      checkButton: CheckButton.new,
+      dropButton: DropButton.new,
+      multipleDropButton: MultipleDropButton.new,
+      // 日期选择
+      datePicker: DatePicker.new,
+      dateToStr: DateTimeFormat.toStr,
 
-    //请求
-    nio: nio,
+      //请求
+      nio: nio,
 
-    //Toast
-    toast: Toast.show,
-    toastLoading: Toast.loading,
-    toastDismiss: Toast.dismiss,
+      //Toast
+      toast: Toast.show,
+      toastLoading: Toast.loading,
+      toastDismiss: Toast.dismiss,
 
-    //路由操作
-    push: Nav.push,
-    pushAndRemove: Nav.pushAndRemove,
-    pop: Nav.pop,
-    routeArgs: Nav.routeArgs,
-    pickFile: FilePickerWrapper.pickFile,
-    // 链接文件下载
-    downloadFile: FileDownloader.downloadLinkFile,
-    networkFileBytes: FileDownloader.downloadFile,
-    saveFile: FileDownloader.saveFile,
-    //唯一ID
-    sid: sid,
-    //检查更新
-    checkUpdate: checkUpdate,
-    //桌面bar
-    desktopBar: DesktopBar.new,
-    //设置
-    desktopState: desktopState,
-    desktopDragging: desktopDragging,
-
-    pageViewItem: UiPageViewItem.new
-  );
+      //路由操作
+      push: Nav.push,
+      pushAndRemove: Nav.pushAndRemove,
+      pop: Nav.pop,
+      routeArgs: Nav.routeArgs,
+      pickFile: FilePickerWrapper.pickFile,
+      // 链接文件下载
+      downloadFile: FileDownloader.downloadLinkFile,
+      networkFileBytes: FileDownloader.downloadFile,
+      saveFile: FileDownloader.saveFile,
+      //唯一ID
+      sid: sid,
+      //检查更新
+      checkUpdate: checkUpdate,
+      //桌面bar
+      desktopBar: DesktopBar.new,
+      //设置
+      desktopState: desktopState,
+      desktopDragging: desktopDragging,
+      pageViewItem: UiPageViewItem.new);
 }

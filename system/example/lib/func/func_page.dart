@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:excel/excel.dart';
 import 'package:flutter/material.dart';
 import 'package:system/func/file_downloader/file_downloader.dart';
-import 'package:system/func/file_picker.dart';
 
 class FuncPage extends StatelessWidget {
   const FuncPage({super.key});
@@ -30,7 +29,7 @@ class FuncPage extends StatelessWidget {
                 //send(uri, jsonString)
                 // final data  =   await FilePickerWrapper.pickFile(allowedExtensions: ['xlsx']);
                 final excel = Excel.decodeBytes(data);
-                final list = Uint8List.fromList(excel.encode() ?? []);
+                // final list = Uint8List.fromList(excel.encode() ?? []);
                 //  final sheet = excel.sheets['学生信息'];
 
                 /*
