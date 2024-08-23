@@ -25,6 +25,9 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Auth"),
+      ),
       body: Text("$auth"),
     );
   }
