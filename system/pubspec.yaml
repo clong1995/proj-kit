@@ -46,7 +46,7 @@ dependencies:
   #网络图片缓存
   cached_network_image: ^3.3.1
   #本地存储
-  shared_preferences: ^2.3.2
+  shared_preferences: 2.2.3 #<==== 3.19.6 不兼容
   #加解密
   encrypt: ^5.0.3
   #设备信息
