@@ -7,6 +7,7 @@ import 'package:system/builder.dart';
 import 'package:system/func/nav.dart';
 import 'package:system/theme.dart';
 
+import 'auth/page.dart';
 import 'button/page.dart';
 import 'func/func_page.dart';
 import 'input/page.dart';
@@ -65,9 +66,13 @@ class MyHomePage extends StatelessWidget {
             title: const Text("按钮"),
             onTap: () => Nav.push(context, () => const ButtonPage()),
           ),
-           ListTile(
+          ListTile(
             title: const Text("功能"),
             onTap: () => Nav.push(context, () => const FuncPage()),
+          ),
+          ListTile(
+            title: const Text("auth"),
+            onTap: () => Nav.push(context, () => const AuthPage()),
           ),
         ],
       ),
