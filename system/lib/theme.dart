@@ -148,6 +148,7 @@ ThemeData appTheme({Color? color}) {
     ),
     dialogTheme: DialogTheme(
       backgroundColor: Colors.white,
+      surfaceTintColor: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.r),
       ),
