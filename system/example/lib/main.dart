@@ -11,6 +11,7 @@ import 'auth/page.dart';
 import 'button/page.dart';
 import 'func/func_page.dart';
 import 'input/page.dart';
+import 'log/page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,6 +74,10 @@ class MyHomePage extends StatelessWidget {
           ListTile(
             title: const Text("auth"),
             onTap: () => Nav.push(context, () => const AuthPage()),
+          ),
+            ListTile(
+            title: const Text("日志"),
+            onTap: () => Nav.push(context, () => const LogPage()),
           ),
         ],
       ),
