@@ -209,6 +209,8 @@ class Kit {
     bool nestRoute,
   }) pageViewItem;
 
+  final Future<void> Function(String message) log;
+
   const Kit({
     //单位
     required this.rpx,
@@ -286,5 +288,6 @@ class Kit {
     required this.desktopDragging,
 
     required this.pageViewItem,
+    required this.log
   });
 }
