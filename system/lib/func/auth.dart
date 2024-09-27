@@ -108,15 +108,12 @@ class Auth {
       _Auth.userID = "";
     }
 
-
-    print("============");
-
     Encrypter encrypter = await _encrypter();
+    print("11111111111");
     Encrypted encrypted = encrypter.encrypt(
         "${_Auth.accessKeyID}\n${_Auth.secretAccessKey}\n${_Auth.userID}",
         iv: _iv);
-
-    print(encrypted.base64);
+    print("222222");
 
     return await _prefs.setString("__auth", encrypted.base64);
   }
