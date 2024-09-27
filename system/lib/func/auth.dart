@@ -108,7 +108,6 @@ class Auth {
       _Auth.userID = "";
     }
 
-
     Encrypter encrypter = await _encrypter();
     Encrypted encrypted = encrypter.encrypt(
         "${_Auth.accessKeyID}\n${_Auth.secretAccessKey}\n${_Auth.userID}",
@@ -118,11 +117,8 @@ class Auth {
   }
 
   static Future<Encrypter> _encrypter() async {
-    print("Guid.id");
     String id = await Guid.id;
-    print("id=========");
     print(id);
-    print("id----------");
     Key key = Key(_lenBytes(id, 32));
     return Encrypter(AES(key));
   }
