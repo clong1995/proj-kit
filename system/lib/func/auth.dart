@@ -112,6 +112,9 @@ class Auth {
     Encrypted encrypted = encrypter.encrypt(
         "${_Auth.accessKeyID}\n${_Auth.secretAccessKey}\n${_Auth.userID}",
         iv: _iv);
+
+    print(encrypted.base64);
+
     return await _prefs.setString("__auth", encrypted.base64);
   }
 
