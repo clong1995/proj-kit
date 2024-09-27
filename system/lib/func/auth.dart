@@ -108,6 +108,9 @@ class Auth {
       _Auth.userID = "";
     }
 
+
+    print("============");
+
     Encrypter encrypter = await _encrypter();
     Encrypted encrypted = encrypter.encrypt(
         "${_Auth.accessKeyID}\n${_Auth.secretAccessKey}\n${_Auth.userID}",
