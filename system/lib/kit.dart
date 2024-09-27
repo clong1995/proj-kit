@@ -6,6 +6,7 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
+import 'package:system/func/log/log.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_page_view_item/ui_page_view_item.dart';
 import 'package:ui_table/ui_table.dart';
@@ -165,5 +166,7 @@ Future<void> kitInit(
       //设置
       desktopState: desktopState,
       desktopDragging: desktopDragging,
-      pageViewItem: UiPageViewItem.new);
+      pageViewItem: UiPageViewItem.new,
+      log: log
+      );
 }

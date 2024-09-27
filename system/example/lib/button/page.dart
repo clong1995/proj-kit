@@ -72,6 +72,7 @@ class _ButtonPageState extends State<ButtonPage> {
             ),
             const DeleteButton(title: Text("Delete\nButton")),
             const CheckButton(title: Text("DeleteButton")),
+            
           ],
         ),
       ),
