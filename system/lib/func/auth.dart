@@ -118,7 +118,6 @@ class Auth {
 
   static Future<Encrypter> _encrypter() async {
     String id = await Guid.id;
-    print(id);
     Key key = Key(_lenBytes(id, 32));
     return Encrypter(AES(key));
   }
