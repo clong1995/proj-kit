@@ -8,4 +8,6 @@ abstract class WebBridge implements StorageBridge {
   Future<void> setWindowSize(double width, double height);
 
   Future<bool> isWin32Webview2();
+
+  Future<void> open(String url);
 }

@@ -97,7 +97,16 @@ class Win32Bridge implements WebBridgeContract {
   }
 
   @override
-  Future<bool?> clean() {
-    throw UnimplementedError();
+  Future<bool?> clean()async {
+     await callVoidMethod('clean', []);
+     return true;
+  }
+  
+  @override
+  Future<void> open(String url) async{
+    await callVoidMethod('singleton_open', [url]);
   }
 }
+
+
+ Win32Bridge webBridge = Win32Bridge();

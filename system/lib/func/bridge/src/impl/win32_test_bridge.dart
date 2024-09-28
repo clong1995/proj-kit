@@ -103,4 +103,12 @@ class Win32TestBridge extends WebBridgeContract {
     // TODO: implement clean
     throw UnimplementedError();
   }
+  
+  @override
+  Future<void> open(String url) {
+    // TODO: implement open
+    throw UnimplementedError();
+  }
 }
+
+Win32TestBridge webBridge = Win32TestBridge();
