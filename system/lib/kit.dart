@@ -42,17 +42,17 @@ import 'widget/toast.dart';
 import 'widget/tool_bar.dart';
 
 Future<void> kitInit(
-  Iterable<Register Function()> registers, {
-  //请求地址的host，如 https://api.abc.com
-  required String host,
-  required String userAgent,
-  //null:根据屏幕自动适配,
-  //0:不使用适配
-  //数字: 按照指定大小适配
-  double? rpx,
-  //窗体大小
-  Size? windowSize,
-}) async {
+    Iterable<Register Function()> registers, {
+      //请求地址的host，如 https://api.abc.com
+      required String host,
+      required String userAgent,
+      //null:根据屏幕自动适配,
+      //0:不使用适配
+      //数字: 按照指定大小适配
+      double? rpx,
+      //窗体大小
+      Size? windowSize,
+    }) async {
   setCertificates();
   //系统设置
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -63,9 +63,9 @@ Future<void> kitInit(
 
   //注册包
   Package.register(registers.map((Register Function() element) => () {
-        Register r = element();
-        return reg.Register(r.name, r.packageBuilder);
-      }));
+    Register r = element();
+    return reg.Register(r.name, r.packageBuilder);
+  }));
 
   //设置全局的请求host
   sendHost(host, userAgent);
@@ -125,10 +125,11 @@ Future<void> kitInit(
       //凭证
       authInit: Auth.init,
       authInitWeak: Auth.initWeak,
+      authUid: Auth.userID,
+
       authLoad: Auth.load,
       authClean: Auth.clean,
       authState: Auth.state,
-      authUid: Auth.uid,
       //删除按钮
       deleteButton: DeleteButton.new,
       //选择按钮
@@ -168,5 +169,5 @@ Future<void> kitInit(
       desktopDragging: desktopDragging,
       pageViewItem: UiPageViewItem.new,
       log: log
-      );
+  );
 }

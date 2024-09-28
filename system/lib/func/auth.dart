@@ -1,71 +1,51 @@
-import 'dart:convert';
-import 'dart:typed_data';
-
-import 'package:encrypt/encrypt.dart';
-import 'package:guid/guid.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-class _Auth {
-  static const String ak = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-  static const String sk = "AAAAAAAAAAA";
-  static String accessKeyID = "";
-  static String userID = "";
-  static String secretAccessKey = "";
-}
+import '/func/storage/storage.dart';
 
 class Auth {
-  static String get accessKeyID => _Auth.accessKeyID;
+  static const String _key = "__auth";
 
-  static String get userID => _Auth.userID;
+  static const String _ak = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+  static const String _sk = "AAAAAAAAAAA";
 
-  static String get secretAccessKey => _Auth.secretAccessKey;
+  static String _accessKeyID = "";
 
-  static late SharedPreferences _prefs;
+  static String get accessKeyID => _accessKeyID;
 
-  static final IV _iv = IV(_lenBytes("Code By HuaZhimeng", 16));
+  static String _userID = "";
+
+  static String userID() => _userID;
+
+  static String _secretAccessKey = "";
+
+  static String get secretAccessKey => _secretAccessKey;
 
   //从本地加载凭证
   static Future<bool> load() async {
-    _prefs = await SharedPreferences.getInstance();
-    String content = _prefs.getString("__auth") ?? "";
-    if (content.isEmpty) {
-      return false;
-    }
-    Encrypted encrypted;
-    try {
-      encrypted = Encrypted.fromBase64(content);
-    } catch (e) {
-      return false;
-    }
-    Encrypter encrypter = await _encrypter();
-    String decrypted;
-    try {
-      decrypted = encrypter.decrypt(encrypted, iv: _iv);
-    } catch (e) {
+    String? content = await Storage().get(_key);
+    if (content == null) {
       return false;
     }
 
-    List<String> lines = decrypted.split('\n');
+    List<String> lines = content.split('\n');
     if (lines.length == 3) {
-      _Auth.accessKeyID = lines[0];
-      _Auth.secretAccessKey = lines[1];
-      _Auth.userID = lines[2];
+      _accessKeyID = lines[0];
+      _secretAccessKey = lines[1];
+      _userID = lines[2];
+      return true;
     } else {
-      return await _set();
+      return await _set() ?? false;
     }
-    return true;
   }
 
   //把凭证加写入本地
-  static Future<bool> init({
+  static Future<void> init({
     required String accessKeyID,
     required String secretAccessKey,
     required String userID,
   }) async {
-    _Auth.accessKeyID = accessKeyID;
-    _Auth.secretAccessKey = secretAccessKey;
-    _Auth.userID = userID;
-    return await _set();
+    _accessKeyID = accessKeyID;
+    _secretAccessKey = secretAccessKey;
+    _userID = userID;
+    await _set();
   }
 
   //临时凭证
@@ -74,62 +54,33 @@ class Auth {
     required String secretAccessKey,
     required String userID,
   }) async {
-    _Auth.accessKeyID = accessKeyID;
-    _Auth.secretAccessKey = secretAccessKey;
-    _Auth.userID = userID;
+    accessKeyID = accessKeyID;
+    secretAccessKey = secretAccessKey;
+    userID = userID;
   }
 
   //清除凭证
-  static Future<bool> clean() async {
-    _Auth.accessKeyID = _Auth.ak;
-    _Auth.secretAccessKey = _Auth.sk;
-    _Auth.userID = "";
-    return await _set();
+  static Future<void> clean() async {
+    _accessKeyID = _ak;
+    _secretAccessKey = _sk;
+    _userID = "";
+    await _set();
   }
 
   //判断状态
-  static bool get _state {
-    return _Auth.userID != "" &&
-        _Auth.accessKeyID != "" &&
-        _Auth.accessKeyID != _Auth.ak &&
-        _Auth.secretAccessKey != "" &&
-        _Auth.secretAccessKey != _Auth.sk;
-  }
+  static bool state() =>
+      Auth._userID != "" &&
+      Auth._accessKeyID != "" &&
+      Auth._secretAccessKey != "";
 
-  static bool state() => _state;
-
-  static String uid() => _Auth.userID;
-
-  static Future<bool> _set() async {
-    if (!_state) {
+  static Future<bool?> _set() async {
+    if (!state()) {
       //状态不对，设置默认的
-      _Auth.accessKeyID = _Auth.ak;
-      _Auth.secretAccessKey = _Auth.sk;
-      _Auth.userID = "";
+      _accessKeyID = _ak;
+      _secretAccessKey = _sk;
+      _userID = "";
     }
-
-    Encrypter encrypter = await _encrypter();
-    Encrypted encrypted = encrypter.encrypt(
-        "${_Auth.accessKeyID}\n${_Auth.secretAccessKey}\n${_Auth.userID}",
-        iv: _iv);
-
-    return await _prefs.setString("__auth", encrypted.base64);
-  }
-
-  static Future<Encrypter> _encrypter() async {
-    String id = await Guid.id;
-    Key key = Key(_lenBytes(id, 32));
-    return Encrypter(AES(key));
-  }
-
-  static Uint8List _lenBytes(String input, int len) {
-    List<int> inputBytes = utf8.encode(input);
-    if (inputBytes.length < len) {
-      inputBytes = List<int>.from(inputBytes)
-        ..addAll(List<int>.filled(len - inputBytes.length, 0));
-    } else if (inputBytes.length > len) {
-      inputBytes = inputBytes.sublist(0, len);
-    }
-    return Uint8List.fromList(inputBytes);
+    return await Storage()
+        .set(_key, "$_accessKeyID\n$_secretAccessKey\n$_userID");
   }
 }
