@@ -1,12 +1,13 @@
 import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
-import 'package:system/func/datetime_format.dart';
+import '/func/datetime_format.dart';
 
 import '../log_mixin.dart';
 
 class _Log with LogMixin {
   String _logPrefix = "";
+
   Future<File> _getlogFile() async {
     final directory = await getApplicationDocumentsDirectory();
     var date = DateTimeFormat.toStr(DateTime.now(), "yyyyMMdd");

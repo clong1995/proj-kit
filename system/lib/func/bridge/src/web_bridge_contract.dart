@@ -1,9 +1,7 @@
-
-
 import 'log_bridge.dart';
 import 'web_bridge.dart';
 
-abstract class WebBridgeContract implements WebBridge,LogBridge {
+abstract class WebBridgeContract implements WebBridge, LogBridge {
   Future<void> startDragging();
 
   Future<void> minimize();

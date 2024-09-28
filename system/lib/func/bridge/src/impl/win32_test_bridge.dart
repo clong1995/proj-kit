@@ -3,7 +3,6 @@ import 'dart:ui';
 import '../web_bridge_contract.dart';
 import '../webview_utils.dart';
 
-
 class Win32TestBridge extends WebBridgeContract {
   @override
   Future<void> startDragging() async {
@@ -39,7 +38,7 @@ class Win32TestBridge extends WebBridgeContract {
   @override
   Future<Size> getDesktopSize() async {
     try {
-       callReceiveMessage("sendMessage", ['DesktopSize']);
+      callReceiveMessage("sendMessage", ['DesktopSize']);
       // var d = await callMethod("sendMessage", ['DesktopSize']);
       return Size.zero;
     } catch (e) {
@@ -92,17 +91,16 @@ class Win32TestBridge extends WebBridgeContract {
     // TODO: implement writeLogs
     throw UnimplementedError();
   }
-  
+
   @override
   Future<bool> isWin32Webview2() {
     // TODO: implement isWin32Webview2
     throw UnimplementedError();
   }
-  
+
   @override
   Future<bool?> clean() {
     // TODO: implement clean
     throw UnimplementedError();
   }
-
 }

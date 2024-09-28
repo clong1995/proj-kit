@@ -10,7 +10,6 @@ class Storage implements StorageInterface {
 
   factory Storage() => _instance;
 
-
   SharedPreferences? _prefs;
 
   @override

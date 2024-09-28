@@ -95,10 +95,9 @@ class Win32Bridge implements WebBridgeContract {
   Future<bool> isWin32Webview2() async {
     return isWebView2();
   }
-  
+
   @override
   Future<bool?> clean() {
     throw UnimplementedError();
   }
-  
 }

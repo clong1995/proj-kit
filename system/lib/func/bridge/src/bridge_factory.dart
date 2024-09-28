@@ -1,6 +1,3 @@
-
-
-
 import 'impl/win32_bridge.dart';
 import 'log_bridge.dart';
 import 'storage_bridge.dart';
@@ -11,7 +8,8 @@ class BridgeFactory {
   static LogBridge logBridge() {
     return Win32Bridge();
   }
-    static StorageBridge storageBridge() {
+
+  static StorageBridge storageBridge() {
     return Win32Bridge();
   }
 

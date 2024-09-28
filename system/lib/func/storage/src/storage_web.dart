@@ -1,4 +1,4 @@
-import 'package:system/func/bridge/bridge.dart';
+import '/func/bridge/bridge.dart';
 
 import 'storage_interface.dart';
 

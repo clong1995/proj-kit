@@ -4,9 +4,9 @@ import 'dart:typed_data';
 import 'package:encrypt/encrypt.dart';
 import 'package:guid/guid.dart';
 
-class Encrypt{
+class Encrypt {
   static Encrypter? _encrypter;
-  static  IV? _iv;
+  static IV? _iv;
 
   static Future<String?> encrypt(String value) async {
     _encrypter ??= await _idEncrypter();
@@ -18,7 +18,7 @@ class Encrypt{
     return encrypted.base64;
   }
 
-  static Future<String?> decrypt(String value)async{
+  static Future<String?> decrypt(String value) async {
     Encrypted encrypted;
     try {
       encrypted = Encrypted.fromBase64(value);
@@ -40,7 +40,7 @@ class Encrypt{
     return decrypted;
   }
 
-  static IV _bytesVi(){
+  static IV _bytesVi() {
     return IV(_lenBytes("Code By HuaZhimeng", 16));
   }
 
