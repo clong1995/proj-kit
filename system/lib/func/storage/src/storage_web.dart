@@ -1,33 +1,24 @@
+import 'package:system/func/bridge/bridge.dart';
+
 import 'storage_interface.dart';
 
 class Storage implements StorageInterface {
+  WebBridge webBridge = BridgeFactory.webBridge();
+
   @override
   Future<String?> get(String key) {
-    //TODO
-    return Future.value(null);
+    return webBridge.getValue(key);
   }
 
-  @override
-  Future<bool?> remove(String key) {
-    //TODO
-    return Future.value(null);
-  }
-
+  
   @override
   Future<bool?> clean() {
-    //TODO
-    return Future.value(null);
+    return webBridge.clean();
   }
 
   @override
-  Future<bool?> set(String key, String value) {
-    //TODO
-    return Future.value(null);
-  }
-
-  @override
-  Future<bool?> containsKey(String key) {
-    //TODO
-    return Future.value(null);
+  Future<bool?> set(String key, String value) async {
+    await webBridge.setValue(key, value);
+    return true;
   }
 }
