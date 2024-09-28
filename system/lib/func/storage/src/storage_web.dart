@@ -3,6 +3,12 @@ import '/func/bridge/bridge.dart';
 import 'storage_interface.dart';
 
 class Storage implements StorageInterface {
+  Storage._privateConstructor();
+
+  static final Storage _instance = Storage._privateConstructor();
+
+  factory Storage() => _instance;
+
   WebBridge webBridge = BridgeFactory.webBridge();
 
   @override
