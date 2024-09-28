@@ -8,12 +8,6 @@ class Storage implements StorageInterface {
   }
 
   @override
-  Future<bool?> remove(String key) {
-    //TODO
-    return Future.value(null);
-  }
-
-  @override
   Future<bool?> clean() {
     //TODO
     return Future.value(null);
@@ -21,12 +15,6 @@ class Storage implements StorageInterface {
 
   @override
   Future<bool?> set(String key, String value) {
-    //TODO
-    return Future.value(null);
-  }
-
-  @override
-  Future<bool?> containsKey(String key) {
     //TODO
     return Future.value(null);
   }
