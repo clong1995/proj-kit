@@ -104,16 +104,5 @@ class Win32TestBridge extends WebBridgeContract {
     // TODO: implement clean
     throw UnimplementedError();
   }
-  
-  @override
-  Future<bool?> remove(String key) {
-    // TODO: implement remove
-    throw UnimplementedError();
-  }
-  
-  @override
-  Future<bool?> containsKey(String key) {
-    // TODO: implement containsKey
-    throw UnimplementedError();
-  }
+
 }

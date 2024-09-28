@@ -10,7 +10,6 @@ class Storage implements StorageInterface {
     return webBridge.getValue(key);
   }
 
-  
   @override
   Future<bool?> clean() {
     return webBridge.clean();

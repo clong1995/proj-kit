@@ -23,12 +23,6 @@ class Storage implements StorageInterface {
   }
 
   @override
-  Future<bool?> remove(String key) async {
-    _prefs ??= await SharedPreferences.getInstance();
-    return _prefs?.remove(key);
-  }
-
-  @override
   Future<bool?> clean() async {
     _prefs ??= await SharedPreferences.getInstance();
     return _prefs?.clear();
@@ -41,11 +35,5 @@ class Storage implements StorageInterface {
       return null;
     }
     return await _prefs?.setString(key, eValue);
-  }
-
-  @override
-  Future<bool?> containsKey(String key) async {
-    _prefs ??= await SharedPreferences.getInstance();
-    return _prefs?.containsKey(key);
   }
 }
