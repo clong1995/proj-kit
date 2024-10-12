@@ -54,9 +54,9 @@ class Auth {
     required String secretAccessKey,
     required String userID,
   }) async {
-    accessKeyID = accessKeyID;
-    secretAccessKey = secretAccessKey;
-    userID = userID;
+    _accessKeyID = accessKeyID;
+    _secretAccessKey = secretAccessKey;
+    _userID = userID;
   }
 
   //清除凭证
