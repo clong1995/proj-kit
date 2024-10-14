@@ -40,7 +40,7 @@ class Win32TestBridge extends WebBridgeContract {
   @override
   Future<Size> getDesktopSize() async {
     try {
-      var d = callReceiveMessage("sendMessage", ['DesktopSize']);
+      callReceiveMessage("sendMessage", ['DesktopSize']);
       // var d = await callMethod("sendMessage", ['DesktopSize']);
       return Size.zero;
     } catch (e) {
@@ -59,15 +59,12 @@ class Win32TestBridge extends WebBridgeContract {
   }
 
   @override
-  Future<void> setWindowSize(double width, double height) {
-    // TODO: implement setWindowSize
-    throw UnimplementedError();
+  Future<void> setWindowSize(double width, double height) async {
   }
 
   @override
-  Future<void> setResizeable(bool isResizable) {
-    // TODO: implement setResizeable
-    throw UnimplementedError();
+  Future<void> setResizeable(bool isResizable) async {
+    
   }
 
   @override
@@ -100,11 +97,6 @@ class Win32TestBridge extends WebBridgeContract {
     throw UnimplementedError();
   }
 
-  @override
-  Future<String> localActivate() {
-    // TODO: implement localActivate
-    throw UnimplementedError();
-  }
 
   @override
   Future<void> setMinSize(double width, double height) {

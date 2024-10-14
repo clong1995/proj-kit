@@ -33,11 +33,6 @@ class WebBridgeStub extends WebBridgeContract {
   }
 
   @override
-  Future<bool> isWin32Webview2() async {
-    return false;
-  }
-
-  @override
   Future<void> logPrintln(String content) async {
     print(content);
   }
@@ -91,36 +86,34 @@ class WebBridgeStub extends WebBridgeContract {
   Future<void> startDragging() async {
     print("startDragging");
   }
-  
+
   @override
-  Future<void> open(String url)async {
+  Future<void> open(String url) async {
     print("url:$url");
   }
-  
+
   @override
   Future<Size> getCurrentSize() async {
-   return Size.zero;
+    return Size.zero;
   }
-  
+
   @override
-  Future<void> setMaxSize(double width, double height) async{
+  Future<void> setMaxSize(double width, double height) async {
     print("setMaxSize");
   }
-  
+
   @override
   Future<void> setMinSize(double width, double height) async {
-       print("setMinSize");
+    print("setMinSize");
   }
-  
-  @override
-  Future<void> setFixedSize(double width, double height)async {
 
-           print("setFixedSize");
+  @override
+  Future<void> setFixedSize(double width, double height) async {
+    print("setFixedSize");
   }
-  
+
   @override
   Future<Size> initSize() async => Size.zero;
 }
-
 
 WebBridgeStub webBridge = WebBridgeStub();
