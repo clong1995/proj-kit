@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kit/web_bridge.dart';
+import 'package:kit/window_manager.dart';
 
 import 'nio.dart';
 
@@ -211,83 +213,88 @@ class Kit {
 
   final Future<void> Function(String message) log;
 
-  const Kit({
-    //单位
-    required this.rpx,
-    //主题
-    required this.appTheme,
-    //builder
-    required this.builder,
-    //获取包
-    required this.package,
-    //网络图片
-    required this.cachedImage,
-    required this.adaptBox,
+  final WebBridge webBridge;
 
-    //弹窗
-    required this.alertConfirm,
-    required this.alertDelete,
-    required this.alertInfo,
-    required this.alertCustom,
-    required this.alertContent,
+  final IWindowManager windowManager;
 
-    //输入框
-    required this.input,
-    //工具栏
-    required this.toolBar,
-    //搜索框
-    required this.searchInput,
-    //表格
-    required this.table,
+  const Kit(
+      {
+      //单位
+      required this.rpx,
+      //主题
+      required this.appTheme,
+      //builder
+      required this.builder,
+      //获取包
+      required this.package,
+      //网络图片
+      required this.cachedImage,
+      required this.adaptBox,
 
-    //凭证
-    required this.authLoad,
-    required this.authInit,
-    required this.authInitWeak,
-    required this.authClean,
-    required this.authState,
-    required this.authUid,
+      //弹窗
+      required this.alertConfirm,
+      required this.alertDelete,
+      required this.alertInfo,
+      required this.alertCustom,
+      required this.alertContent,
 
-    //删除按钮
-    required this.deleteButton,
-    required this.checkButton,
-    required this.dropButton,
-    required this.multipleDropButton,
+      //输入框
+      required this.input,
+      //工具栏
+      required this.toolBar,
+      //搜索框
+      required this.searchInput,
+      //表格
+      required this.table,
 
-    // 日期按钮
-    required this.datePicker,
-    // 日期转化为字符串
-    required this.dateToStr,
+      //凭证
+      required this.authLoad,
+      required this.authInit,
+      required this.authInitWeak,
+      required this.authClean,
+      required this.authState,
+      required this.authUid,
 
-    //请求
-    required this.nio,
+      //删除按钮
+      required this.deleteButton,
+      required this.checkButton,
+      required this.dropButton,
+      required this.multipleDropButton,
 
-    //路由操作
-    required this.push,
-    required this.pushAndRemove,
-    required this.pop,
-    required this.routeArgs,
+      // 日期按钮
+      required this.datePicker,
+      // 日期转化为字符串
+      required this.dateToStr,
 
-    //toast
-    required this.toast,
-    required this.toastLoading,
-    required this.toastDismiss,
-    // 文件选择
-    required this.pickFile,
-    required this.downloadFile,
-    required this.networkFileBytes,
-    required this.saveFile,
+      //请求
+      required this.nio,
 
-    //唯一id
-    required this.sid,
-    //检查更新
-    required this.checkUpdate,
-    //
-    required this.desktopBar,
-    required this.desktopState,
-    required this.desktopDragging,
+      //路由操作
+      required this.push,
+      required this.pushAndRemove,
+      required this.pop,
+      required this.routeArgs,
 
-    required this.pageViewItem,
-    required this.log
-  });
+      //toast
+      required this.toast,
+      required this.toastLoading,
+      required this.toastDismiss,
+      // 文件选择
+      required this.pickFile,
+      required this.downloadFile,
+      required this.networkFileBytes,
+      required this.saveFile,
+
+      //唯一id
+      required this.sid,
+      //检查更新
+      required this.checkUpdate,
+      //
+      required this.desktopBar,
+      required this.desktopState,
+      required this.desktopDragging,
+      required this.pageViewItem,
+      required this.log,
+      required this.webBridge,
+      required this.windowManager});
 }

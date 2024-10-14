@@ -3,6 +3,8 @@ import 'dart:ui';
 import '../web_bridge_contract.dart';
 import '../webview_utils.dart';
 
+
+
 class Win32TestBridge extends WebBridgeContract {
   @override
   Future<void> startDragging() async {
@@ -38,7 +40,7 @@ class Win32TestBridge extends WebBridgeContract {
   @override
   Future<Size> getDesktopSize() async {
     try {
-      callReceiveMessage("sendMessage", ['DesktopSize']);
+      var d = callReceiveMessage("sendMessage", ['DesktopSize']);
       // var d = await callMethod("sendMessage", ['DesktopSize']);
       return Size.zero;
     } catch (e) {
@@ -93,11 +95,29 @@ class Win32TestBridge extends WebBridgeContract {
   }
 
   @override
-  Future<bool> isWin32Webview2() {
-    // TODO: implement isWin32Webview2
+  Future<void> open(String url) {
+    // TODO: implement open
     throw UnimplementedError();
   }
 
+  @override
+  Future<String> localActivate() {
+    // TODO: implement localActivate
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> setMinSize(double width, double height) {
+    // TODO: implement setMinSize
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> setFixedSize(double width, double height) {
+    // TODO: implement setFixedSize
+    throw UnimplementedError();
+  }
+  
   @override
   Future<bool?> clean() {
     // TODO: implement clean
@@ -105,10 +125,6 @@ class Win32TestBridge extends WebBridgeContract {
   }
   
   @override
-  Future<void> open(String url) {
-    // TODO: implement open
-    throw UnimplementedError();
-  }
+  // TODO: implement initSize
+  Future<Size> initSize() => throw UnimplementedError();
 }
-
-Win32TestBridge webBridge = Win32TestBridge();

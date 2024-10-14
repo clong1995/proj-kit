@@ -3,6 +3,7 @@ import 'dart:core';
 import 'dart:js';
 import 'dart:js_interop';
 import 'dart:js_util';
+import 'dart:html';
 
 // 暴露给js 的方法
 @JS()
@@ -50,6 +51,20 @@ Future<dynamic> callSyncMethod(
 }
 
 // 检查是否是否在 webview2
-bool isWebView2() {
+bool checkIsWebView2() {
   return hasProperty(context['window'], 'sync_build_info');
+}
+
+// 判断是否是手机浏览器
+bool isMobile() {
+  final userAgent = window.navigator.userAgent.toLowerCase();
+
+  // 常见的手机浏览器关键字
+  if (userAgent.contains('mobile') ||
+      userAgent.contains('android') ||
+      userAgent.contains('iphone') ||
+      userAgent.contains('ipad')) {
+    return true;
+  }
+  return false;
 }

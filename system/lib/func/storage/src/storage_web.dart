@@ -1,3 +1,5 @@
+
+
 import '/func/bridge/bridge.dart';
 
 import 'storage_interface.dart';
@@ -9,7 +11,7 @@ class Storage implements StorageInterface {
 
   factory Storage() => _instance;
 
-  WebBridge webBridge = BridgeFactory.webBridge();
+  WebBridgeContract webBridge = BridgeFactory.webContractBridge();
 
   @override
   Future<String?> get(String key) {

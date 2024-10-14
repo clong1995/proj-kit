@@ -1,15 +1,39 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-
 import '../web_bridge_contract.dart';
 import '../webview_utils.dart';
 
 /// 针对 Go WebView 客户端
-class Win32Bridge implements WebBridgeContract {
+class Win32Bridge extends WebBridgeContract {
+  // 目标大小
+  Size _targetSize = Size.zero;
+
+  // 当前窗口大小
+  Size _currentSize = Size.zero;
+
+  // 桌面
+  Size _desktopSize = Size.zero;
+
+  // 是否改变大小
+  bool _isResized = false;
+
+  Size _initSize = Size.zero;
+
+  @override
+  Future<void> setInitSize(double width, double height) async {
+    await setSize(width, height);
+    _initSize = Size(width, height);
+  }
+
   @override
   Future<void> startDragging() async {
     callVoidMethod("window_drag", []);
+  }
+  @override
+  Future<Size> getCurrentSize() async {
+    return _currentSize;
   }
 
   @override
@@ -19,16 +43,22 @@ class Win32Bridge implements WebBridgeContract {
 
   @override
   Future<void> restore() async {
-    callVoidMethod("window_restore", []);
+    callVoidMethod("window_unMaximize", []);
+    setWindowSize(_targetSize.width, _targetSize.height);
+    if (!_isResized) {
+      setMaxSize(_targetSize.width, _targetSize.height);
+    }
   }
 
   @override
   Future<void> setSize(double width, double height) async {
     callVoidMethod('window_setSize', [width.ceil(), height.ceil()]);
+    _targetSize = Size(width, height);
   }
 
   @override
   Future<void> maximize() async {
+    setMaxSize(_desktopSize.width, _desktopSize.height);
     callVoidMethod("window_maximize", []);
   }
 
@@ -43,12 +73,15 @@ class Win32Bridge implements WebBridgeContract {
     final map = jsonDecode(response);
     double width = double.tryParse(map['width'].toString()) ?? 0;
     double height = double.tryParse(map['height'].toString()) ?? 0;
+    // 桌面大小
+    _desktopSize = Size(width + 12, height + 12);
     return Size(width, height);
   }
 
   @override
   Future<void> setWindowSize(double width, double height) async {
     callVoidMethod('window_setSize', [width.ceil(), height.ceil()]);
+    _targetSize = Size(width, height);
   }
 
   @override
@@ -63,7 +96,16 @@ class Win32Bridge implements WebBridgeContract {
 
   @override
   Future<void> setResizeable(bool isResizable) async {
-    callVoidMethod("window_setResizable", [isResizable]);
+    _isResized = isResizable;
+    if (isResizable) {
+      setMaxSize(_desktopSize.width, _desktopSize.height);
+    } else {
+      setMaxSize(_targetSize.width, _targetSize.height);
+    }
+    //await callVoidMethod("window_setResizable", [isResizable]);
+    if (kDebugMode) {
+      print("window_setResizable: $isResizable");
+    }
   }
 
   @override
@@ -92,21 +134,37 @@ class Win32Bridge implements WebBridgeContract {
   }
 
   @override
-  Future<bool> isWin32Webview2() async {
-    return isWebView2();
-  }
-
-  @override
-  Future<bool?> clean()async {
-     await callVoidMethod('clean', []);
-     return true;
-  }
-  
-  @override
-  Future<void> open(String url) async{
+  Future<void> open(String url) async {
     await callVoidMethod('singleton_open', [url]);
   }
+
+  @override
+  Future<void> setMinSize(double width, double height) async {
+    callVoidMethod('window_setMinSize', [width.ceil() + 13, height.ceil()]);
+  }
+
+  @override
+  Future<void> setFixedSize(double width, double height) async {
+    await callVoidMethod('window_setFixedSize', [width.ceil(), height.ceil()]);
+  }
+
+  @override
+  bool isWebView2() {
+    return checkIsWebView2();
+  }
+
+  @override
+  Future<void> setMaxSize(double width, double height) async {
+    callVoidMethod('window_setMaxSize', [width.ceil(), height.ceil()]);
+  }
+
+  @override
+  Future<bool?> clean() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Size>  initSize() async=> _initSize;
 }
 
-
- Win32Bridge webBridge = Win32Bridge();
+WebBridgeContract webBridge = Win32Bridge();

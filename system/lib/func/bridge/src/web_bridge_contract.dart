@@ -1,7 +1,14 @@
-import 'log_bridge.dart';
-import 'web_bridge.dart';
+import 'dart:ui';
 
-abstract class WebBridgeContract implements WebBridge, LogBridge {
+import 'package:kit/web_bridge.dart';
+import 'package:system/func/bridge/src/storage_bridge.dart';
+
+import 'log_bridge.dart';
+
+
+
+abstract class WebBridgeContract implements WebBridge, LogBridge,StorageBridge {
+  Future<Size> initSize();
   Future<void> startDragging();
 
   Future<void> minimize();
@@ -20,5 +27,18 @@ abstract class WebBridgeContract implements WebBridge, LogBridge {
 
   Future<void> showWindowTitleBar(bool show);
 
-  Future<String> guid();
+  Future<void> setFixedSize(double width, double height);
+  @override
+  Future<void> setMaxSize(double width, double height) async {}
+
+  @override
+  Future<Size> getCurrentSize() async => Size.zero;
+  @override
+  bool isWebView2() => false;
+  @override
+  Future<String> guid() async {
+    return 'unknown';
+  }
+
+  Future<void> setInitSize(double width, double height) async {}
 }

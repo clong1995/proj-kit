@@ -96,6 +96,30 @@ class WebBridgeStub extends WebBridgeContract {
   Future<void> open(String url)async {
     print("url:$url");
   }
+  
+  @override
+  Future<Size> getCurrentSize() async {
+   return Size.zero;
+  }
+  
+  @override
+  Future<void> setMaxSize(double width, double height) async{
+    print("setMaxSize");
+  }
+  
+  @override
+  Future<void> setMinSize(double width, double height) async {
+       print("setMinSize");
+  }
+  
+  @override
+  Future<void> setFixedSize(double width, double height)async {
+
+           print("setFixedSize");
+  }
+  
+  @override
+  Future<Size> initSize() async => Size.zero;
 }
 
 
