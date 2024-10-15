@@ -5,11 +5,9 @@ import 'package:kit/window_manager.dart';
 import '../../bridge/src/bridge_factory.dart';
 import '../../bridge/src/web_bridge_contract.dart';
 
-
-
-
 class WindowManager implements IWindowManager {
   //WebBridgeContract webBridge = Win32TestBridge();
+  bool _isMaximized = false;
   WebBridgeContract webBridge = BridgeFactory.webContractBridge();
 
   @override
@@ -31,13 +29,22 @@ class WindowManager implements IWindowManager {
   Future<void> startDragging() => webBridge.startDragging();
 
   @override
-  Future<void> minimize({bool vertically = false}) => webBridge.minimize();
+  Future<void> minimize({bool vertically = false}) {
+    _isMaximized = false;
+    return webBridge.minimize();
+  }
 
   @override
-  Future<void> maximize() => webBridge.maximize();
+  Future<void> maximize() {
+    _isMaximized = true;
+    return webBridge.maximize();
+  }
 
   @override
-  Future<void> restore() => webBridge.restore();
+  Future<void> restore() {
+    _isMaximized = false;
+    return webBridge.restore();
+  }
 
   @override
   Future<Size> screenSize() async {
@@ -57,5 +64,16 @@ class WindowManager implements IWindowManager {
   @override
   Future<void> showWindowTitleBar(bool flag) async {
     return await webBridge.showWindowTitleBar(flag);
+  }
+
+  @override
+  Future<bool> isMaximized() async {
+    return _isMaximized;
+  }
+
+  @override
+  Future<void> unmaximize() {
+    _isMaximized = false;
+    return webBridge.restore();
   }
 }

@@ -61,4 +61,14 @@ class WindowManager implements IWindowManager {
     // TODO: implement showWindowTitleBar
     throw UnimplementedError();
   }
+  
+  @override
+  Future<bool> isMaximized() {
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<void> unmaximize() {
+    throw UnimplementedError();
+  }
 }
