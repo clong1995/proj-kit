@@ -7,6 +7,7 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
+import 'package:system/func/bridge/bridge.dart';
 import '/func/log/log.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_page_view_item/ui_page_view_item.dart';
@@ -41,6 +42,7 @@ import 'widget/multiple_drop_button.dart';
 import 'widget/search_input.dart';
 import 'widget/toast.dart';
 import 'widget/tool_bar.dart';
+import 'func/window_manager/window_manager.dart' as wm;
 
 Future<void> kitInit(
   Iterable<Register Function()> registers, {
@@ -170,5 +172,7 @@ Future<void> kitInit(
       desktopState: desktopState,
       desktopDragging: desktopDragging,
       pageViewItem: UiPageViewItem.new,
-      log: log);
+      log: log,
+      windowManager: wm.windowManager,
+      webBridge:BridgeFactory.webBridge());
 }
