@@ -80,9 +80,9 @@ Future<void> kitInit(
 
   // web大小
   if (windowSize != null && kIsWeb) {
-  BridgeFactory.webBridge().setWindowSize(windowSize.width, windowSize.height);
+    BridgeFactory.webBridge()
+        .setWindowSize(windowSize.width, windowSize.height);
   }
-
 
   if (windowSize != null &&
       (Device.platform == "windows" ||
@@ -180,5 +180,5 @@ Future<void> kitInit(
       pageViewItem: UiPageViewItem.new,
       log: log,
       windowManager: wm.windowManager,
-      webBridge:BridgeFactory.webBridge());
+      webBridge: BridgeFactory.webBridge());
 }
