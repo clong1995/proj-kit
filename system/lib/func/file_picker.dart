@@ -1,11 +1,13 @@
 
 
-import 'package:file_picker/file_picker.dart' as fp;
+
+
+import 'package:file_picker/file_picker.dart';
 
 class FilePickerWrapper {
   static Future<List<int>?> pickFile({List<String>? allowedExtensions}) async {
-    final pickedFile = await fp.FilePicker.platform.pickFiles(
-      type: fp.FileType.custom,
+    final pickedFile = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
       allowedExtensions: allowedExtensions,
       allowMultiple: false,
     );
