@@ -54,7 +54,7 @@ Future<void> kitInit(
   //窗体大小
   Size? windowSize,
 }) async {
-  if (kIsWeb) {
+  if (!kIsWeb) {
     setCertificates();
   }
   //系统设置
