@@ -1,4 +1,5 @@
 import 'package:device/device.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kit/def.dart';
@@ -53,7 +54,9 @@ Future<void> kitInit(
   //窗体大小
   Size? windowSize,
 }) async {
-  setCertificates();
+  if (kIsWeb) {
+    setCertificates();
+  }
   //系统设置
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarBrightness: Brightness.dark,
