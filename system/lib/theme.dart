@@ -2,8 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rpx/ext.dart';
 
+String _fontFamily = "ZCOOLKuaiLe";
+
 ThemeData appTheme({Color? color}) {
-  final TextStyle textStyle = TextStyle(fontSize: 14.r);
+  final TextStyle textStyle =
+      TextStyle(fontSize: 14.r, fontFamily: _fontFamily);
   color ??= const Color.fromRGBO(96, 173, 249, 1);
 
   const Color backgroundColor = Color.fromRGBO(247, 248, 250, 1.0);
@@ -14,7 +17,7 @@ ThemeData appTheme({Color? color}) {
   return ThemeData(
     platform: TargetPlatform.iOS,
     primaryColor: color,
-    fontFamily: "Segoe UI",
+    fontFamily: _fontFamily,
     scaffoldBackgroundColor: backgroundColor,
     splashFactory: NoSplash.splashFactory,
     appBarTheme: AppBarTheme(
@@ -158,6 +161,7 @@ ThemeData appTheme({Color? color}) {
         fontSize: 10.r,
         color: Colors.black,
         fontWeight: FontWeight.bold,
+        fontFamily: _fontFamily,
       ),
     ),
     useMaterial3: true,
