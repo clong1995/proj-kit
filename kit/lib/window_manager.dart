@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 abstract class IWindowManager {
@@ -24,4 +23,7 @@ abstract class IWindowManager {
   Future<void> setAlwaysTop(bool flag);
 
   Future<void> showWindowTitleBar(bool flag);
+
+  Future<void> unmaximize();
+  Future<bool> isMaximized();
 }

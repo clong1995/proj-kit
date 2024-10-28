@@ -78,6 +78,12 @@ Future<void> kitInit(
   //竖屏
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
+  // web大小
+  if (windowSize != null && kIsWeb) {
+    BridgeFactory.webBridge()
+        .setWindowSize(windowSize.width, windowSize.height);
+  }
+
   if (windowSize != null &&
       (Device.platform == "windows" ||
           Device.platform == "macOS" ||
@@ -174,5 +180,5 @@ Future<void> kitInit(
       pageViewItem: UiPageViewItem.new,
       log: log,
       windowManager: wm.windowManager,
-      webBridge:BridgeFactory.webBridge());
+      webBridge: BridgeFactory.webBridge());
 }

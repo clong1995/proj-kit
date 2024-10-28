@@ -58,4 +58,14 @@ class WindowManager implements IWindowManager {
     await windowManager.setTitleBarStyle(
         flag ? TitleBarStyle.normal : TitleBarStyle.hidden);
   }
+  
+  @override
+  Future<bool> isMaximized() {
+    return windowManager.isMaximizable();
+  }
+  
+  @override
+  Future<void> unmaximize() {
+    return windowManager.isMaximizable();
+  }
 }
