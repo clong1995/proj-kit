@@ -14,6 +14,7 @@ ThemeData appTheme({Color? color}) {
   return ThemeData(
     platform: TargetPlatform.iOS,
     primaryColor: color,
+    fontFamily: "Segoe UI",
     scaffoldBackgroundColor: backgroundColor,
     splashFactory: NoSplash.splashFactory,
     appBarTheme: AppBarTheme(
