@@ -21,6 +21,7 @@ class Auth {
   //从本地加载凭证
   static Future<bool> load() async {
     String? content = await Storage().get(_key);
+    print(content);
     if (content == null) {
       return false;
     }
