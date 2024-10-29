@@ -73,7 +73,7 @@ class _InputState extends State<Input> {
       height: height,
       child: TextField(
         controller: controller,
-        cursorHeight: (height ?? 24.r) * .5,
+        cursorHeight: (height ?? 24.r) * .7,
         style: style,
         maxLines: maxLines,
         keyboardType: widget.keyboardType,
