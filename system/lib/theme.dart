@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rpx/ext.dart';
 
-String _fontFamily = "ZCOOLKuaiLe";
+String _fontFamily = "Roboto";
 
 ThemeData appTheme({Color? color}) {
   final TextStyle textStyle =
