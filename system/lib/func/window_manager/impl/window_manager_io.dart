@@ -66,6 +66,6 @@ class WindowManager implements IWindowManager {
   
   @override
   Future<void> unmaximize() {
-    return windowManager.isMaximizable();
+    return windowManager.unmaximize();
   }
 }
