@@ -13,10 +13,10 @@ packages:
     dependency: transitive
     description:
       name: args
-      sha256: "7cf60b9f0cc88203c5a190b4cd62a99feea42759a7fa695010eb5de1c0b2252a"
+      sha256: bf9f5caeea8d8fe6721a9c358dd8a5c1947b27f1cfaa18b39c301273594919e6
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.0"
+    version: "2.6.0"
   asn1lib:
     dependency: transitive
     description:
@@ -126,7 +126,7 @@ packages:
     description:
       path: device
       ref: HEAD
-      resolved-ref: "436df72115008a1229c36b1d5657cdf1bd7f0292"
+      resolved-ref: "9c8f9846bf953d5f5b0a75b3c7dbfe0b4aee323a"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.1"
@@ -199,10 +199,10 @@ packages:
     dependency: transitive
     description:
       name: file
-      sha256: "5fc22d7c25582e38ad9a8515372cd9a93834027aacf1801cf01164dac0ffa08c"
+      sha256: a3b4f84adafef897088c160faf7dfffb7696046cb13ae90b508c2cbc95d3b8d4
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.0"
+    version: "7.0.1"
   file_picker:
     dependency: transitive
     description:
@@ -215,10 +215,10 @@ packages:
     dependency: transitive
     description:
       name: fixnum
-      sha256: "25517a4deb0c03aa0f32fd12db525856438902d9c16536311e76cdc57b31d7d1"
+      sha256: b6dc7065e46c974bc7c5f143080a6764ec7a4be6da1285ececdc37be96de53be
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -263,7 +263,7 @@ packages:
     description:
       path: guid
       ref: HEAD
-      resolved-ref: "436df72115008a1229c36b1d5657cdf1bd7f0292"
+      resolved-ref: "9c8f9846bf953d5f5b0a75b3c7dbfe0b4aee323a"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.3"
@@ -295,18 +295,18 @@ packages:
     dependency: transitive
     description:
       name: intl
-      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
       url: "https://pub.dev"
     source: hosted
-    version: "0.18.1"
+    version: "0.19.0"
   jiffy:
     dependency: transitive
     description:
       name: jiffy
-      sha256: cc1d4b75016a9156c29b5d61f0c9176c3e0fb0580cc5a0e0422b5d2cab3fbfff
+      sha256: "3497caaa36d36a29033e66803c9739ce6bccbc7e241ca46070f76ee9e6f6eb0c"
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.1"
+    version: "6.3.1"
   js:
     dependency: transitive
     description:
@@ -320,10 +320,10 @@ packages:
     description:
       path: kit
       ref: HEAD
-      resolved-ref: "8bc59cf07a05eb555b0475dfcd9c42ac50f0a7be"
+      resolved-ref: "7fa32ba09d94f88b47229b029ecb81c4dfc44c67"
       url: "https://github.com/clong1995/proj-kit.git"
     source: git
-    version: "0.0.14"
+    version: "0.0.15"
   leak_tracker:
     dependency: transitive
     description:
@@ -401,7 +401,7 @@ packages:
     description:
       path: package
       ref: HEAD
-      resolved-ref: "436df72115008a1229c36b1d5657cdf1bd7f0292"
+      resolved-ref: "9c8f9846bf953d5f5b0a75b3c7dbfe0b4aee323a"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.2"
@@ -497,10 +497,10 @@ packages:
     dependency: transitive
     description:
       name: platform
-      sha256: "9b71283fc13df574056616011fb138fd3b793ea47cc509c189a6c3fa5f8a1a65"
+      sha256: "5d6b1b0036a5f331ebc77c850ebc8506cbc1e9416c27e59b439f917a902a4984"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.5"
+    version: "3.1.6"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -522,7 +522,7 @@ packages:
     description:
       path: rpx
       ref: HEAD
-      resolved-ref: "436df72115008a1229c36b1d5657cdf1bd7f0292"
+      resolved-ref: "9c8f9846bf953d5f5b0a75b3c7dbfe0b4aee323a"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.1.3"
@@ -562,10 +562,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_foundation
-      sha256: c4b35f6cb8f63c147312c054ce7c2254c8066745125264f0c88739c417fc9d9f
+      sha256: "07e050c7cd39bad516f8d64c455f04508d09df104be326d8c02551590a0d513d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.2"
+    version: "2.5.3"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -673,7 +673,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.17"
+    version: "0.0.18"
   term_glyph:
     dependency: transitive
     description:
@@ -711,7 +711,7 @@ packages:
     description:
       path: ui_adapt
       ref: HEAD
-      resolved-ref: "436df72115008a1229c36b1d5657cdf1bd7f0292"
+      resolved-ref: "9c8f9846bf953d5f5b0a75b3c7dbfe0b4aee323a"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.1"
@@ -720,7 +720,7 @@ packages:
     description:
       path: ui_page_view_item
       ref: HEAD
-      resolved-ref: "436df72115008a1229c36b1d5657cdf1bd7f0292"
+      resolved-ref: "9c8f9846bf953d5f5b0a75b3c7dbfe0b4aee323a"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.1"
@@ -729,7 +729,7 @@ packages:
     description:
       path: ui_table
       ref: HEAD
-      resolved-ref: "436df72115008a1229c36b1d5657cdf1bd7f0292"
+      resolved-ref: "9c8f9846bf953d5f5b0a75b3c7dbfe0b4aee323a"
       url: "https://github.com/clong1995/flutter_ui.git"
     source: git
     version: "0.0.6"
@@ -793,10 +793,10 @@ packages:
     dependency: transitive
     description:
       name: xdg_directories
-      sha256: faea9dee56b520b55a566385b84f2e8de55e7496104adada9962e0bd11bcff1d
+      sha256: "7a3f37b05d989967cdddcbb571f1ea834867ae2faa29725fd085180e0883aa15"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
+    version: "1.1.0"
   xid:
     dependency: transitive
     description:
