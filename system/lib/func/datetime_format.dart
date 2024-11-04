@@ -9,6 +9,14 @@ class DateTimeFormat {
     return DateTime.parse(dateTime);
   }
 
+  static String toDateStr(String dateStr, String pattern) {
+    try {
+      return toStr(DateTime.parse(dateStr), pattern);
+    } catch (e) {
+      return "";
+    }
+  }
+
   static DateTime add(
     DateTime dateTime, {
     int years = 0,

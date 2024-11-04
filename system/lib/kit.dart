@@ -149,6 +149,7 @@ Future<void> kitInit(
       // 日期选择
       datePicker: DatePicker.new,
       dateToStr: DateTimeFormat.toStr,
+      formatDateStr: DateTimeFormat.toDateStr,
 
       //请求
       nio: nio,
