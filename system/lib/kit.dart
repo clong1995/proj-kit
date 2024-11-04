@@ -12,7 +12,6 @@ import '/func/log/log.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_page_view_item/ui_page_view_item.dart';
 import 'package:ui_table/ui_table.dart';
-import 'package:window_manager/window_manager.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
@@ -84,26 +83,7 @@ Future<void> kitInit(
         .setWindowSize(windowSize.width, windowSize.height);
   }
 
-  if (windowSize != null &&
-      (Device.platform == "windows" ||
-          Device.platform == "macOS" ||
-          Device.platform == "linux" ||
-          Device.platform == "fuchsia")) {
-    await windowManager.ensureInitialized();
-    await windowManager.waitUntilReadyToShow(
-        WindowOptions(
-          size: windowSize,
-          center: true,
-          minimumSize: windowSize,
-          backgroundColor: Colors.transparent,
-          titleBarStyle: TitleBarStyle.hidden,
-          windowButtonVisibility: false,
-        ), () async {
-      await windowManager.show();
-      await windowManager.focus();
-      await windowManager.setResizable(true);
-    });
-  }
+  await wm.windowManager.init(windowSize);
 
   //单位
   Rpx.init(rpx);
