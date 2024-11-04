@@ -155,6 +155,8 @@ class Kit {
 
   // 日期对象转化为字符串
   final String Function(DateTime dateTime, String pattern) dateToStr;
+// 重新格式化日期对象
+  final String Function(String dateStr, String pattern) formatDateStr;
 
   //请求
   final Future<T> Function<S extends BaseReq, T extends BaseRes>(
@@ -265,6 +267,8 @@ class Kit {
       required this.datePicker,
       // 日期转化为字符串
       required this.dateToStr,
+      // 格式化日期
+      required this.formatDateStr,
 
       //请求
       required this.nio,
