@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:rpx/rpx.dart';
 import 'package:system/builder.dart';
 import 'package:system/func/nav.dart';
+import 'package:system/kit.dart';
 import 'package:system/theme.dart';
 
 import 'auth/page.dart';
@@ -24,6 +25,7 @@ Future<void> main() async {
   final bool isMobile = defaultTargetPlatform == TargetPlatform.iOS ||
       defaultTargetPlatform == TargetPlatform.android;
   Rpx.init(isMobile ? null : 340);
+  await kitInit([], host: 'https://www.example.com', userAgent: '');
   runApp(const MyApp());
 }
 

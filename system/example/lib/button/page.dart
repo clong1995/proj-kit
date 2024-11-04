@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:system/func/desktop_state.dart';
 import 'package:system/widget/check_button.dart';
 import 'package:system/widget/date_picker.dart';
 import 'package:system/widget/delete_button.dart';
@@ -72,7 +73,26 @@ class _ButtonPageState extends State<ButtonPage> {
             ),
             const DeleteButton(title: Text("Delete\nButton")),
             const CheckButton(title: Text("DeleteButton")),
-            
+            Wrap(
+              spacing: 10,
+              children: [
+                FilledButton(
+                    onPressed: () {
+                      desktopState('toggle');
+                    },
+                    child: const  Text("toggle")),
+                FilledButton(
+                    onPressed: () {
+                      desktopState('max');
+                    },
+                    child: const Text("max")),
+                                FilledButton(
+                    onPressed: () {
+                      desktopState('min');
+                    },
+                    child: const Text("min"))
+              ],
+            ),
           ],
         ),
       ),
