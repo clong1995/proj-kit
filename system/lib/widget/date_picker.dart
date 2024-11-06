@@ -35,6 +35,14 @@ class _DatePickerState extends State<DatePicker> {
   }
 
   @override
+  void didUpdateWidget(covariant DatePicker oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    setState(() {
+       selectedDate = widget.initial;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: 35.r,
