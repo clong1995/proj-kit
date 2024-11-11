@@ -219,6 +219,8 @@ class Kit {
 
   final IWindowManager windowManager;
 
+  final Future<String> Function() appVersion;
+
   const Kit(
       {
       //单位
@@ -300,5 +302,7 @@ class Kit {
       required this.pageViewItem,
       required this.log,
       required this.webBridge,
-      required this.windowManager});
+      required this.windowManager,
+      required this.appVersion
+      });
 }
