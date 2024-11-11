@@ -1,4 +1,4 @@
-import 'package:device/device.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +7,7 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
+import 'package:system/func/app_version.dart';
 import 'package:system/func/bridge/bridge.dart';
 import '/func/log/log.dart';
 import 'package:ui_adapt/ui_adapt.dart';
@@ -161,5 +162,6 @@ Future<void> kitInit(
       pageViewItem: UiPageViewItem.new,
       log: log,
       windowManager: wm.windowManager,
+      appVersion: appVersion,
       webBridge: BridgeFactory.webBridge());
 }
