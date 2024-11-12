@@ -134,6 +134,7 @@ class Kit {
   final Widget Function<T>({
     T? value,
     required Map<T, String> items,
+    double? dropHeight,
     ValueChanged<T?>? onChanged,
   }) dropButton;
 
