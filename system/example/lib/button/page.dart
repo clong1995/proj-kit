@@ -1,3 +1,4 @@
+import 'package:example/button/button_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:system/func/desktop_state.dart';
 import 'package:system/widget/check_button.dart';
@@ -8,6 +9,8 @@ import 'package:system/widget/drop_check_menu.dart';
 import 'package:system/widget/drop_menu.dart';
 import 'package:system/widget/multiple_drop_button.dart';
 
+import 'intro.dart';
+
 class ButtonPage extends StatefulWidget {
   const ButtonPage({super.key});
 
@@ -16,6 +19,7 @@ class ButtonPage extends StatefulWidget {
 }
 
 class _ButtonPageState extends State<ButtonPage> {
+  Map<int, String> items = {1: 'item1'};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +61,29 @@ class _ButtonPageState extends State<ButtonPage> {
               selectedKeys: const [1],
               onChanged: (res) => print(res),
             ),
+            SizedBox(
+              height: 500,
+              child: Navigator(
+                key: nestedNavigatorKey,
+                onGenerateRoute: ButtonRoutes.generateRoute,
+                onGenerateInitialRoutes: (navigator, initialRoute) => [
+                  MaterialPageRoute(builder: (context) => const IntroList()),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                DropButton(items: items),
+                FilledButton(
+                    onPressed: () {
+                      int k = items.keys.last + 1;
+                      setState(() {
+                        items = {...items, k: 'item$k'};
+                      });
+                    },
+                    child: const Text("增加选项"))
+              ],
+            ),
             const SizedBox(
               width: 90,
               child: DropButton<int>(
@@ -80,13 +107,13 @@ class _ButtonPageState extends State<ButtonPage> {
                     onPressed: () {
                       desktopState('toggle');
                     },
-                    child: const  Text("toggle")),
+                    child: const Text("toggle")),
                 FilledButton(
                     onPressed: () {
                       desktopState('max');
                     },
                     child: const Text("max")),
-                                FilledButton(
+                FilledButton(
                     onPressed: () {
                       desktopState('min');
                     },
