@@ -222,6 +222,8 @@ class Kit {
 
   final Future<String> Function() appVersion;
 
+  final Widget Function(Widget) dragBar;
+
   const Kit(
       {
       //单位
@@ -304,6 +306,7 @@ class Kit {
       required this.log,
       required this.webBridge,
       required this.windowManager,
-      required this.appVersion
+      required this.appVersion,
+      required this.dragBar
       });
 }
