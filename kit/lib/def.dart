@@ -222,7 +222,7 @@ class Kit {
 
   final Future<String> Function() appVersion;
 
-  final Widget Function(Widget) dragBar;
+  final Widget Function({Widget? child}) dragBar;
 
   const Kit(
       {
