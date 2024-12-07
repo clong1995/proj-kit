@@ -9,6 +9,7 @@ import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
 import 'package:system/func/app_version.dart';
 import 'package:system/func/bridge/bridge.dart';
+import 'package:system/widget/drag_bar/drag_bar.dart';
 import '/func/log/log.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_page_view_item/ui_page_view_item.dart';
@@ -163,5 +164,6 @@ Future<void> kitInit(
       log: log,
       windowManager: wm.windowManager,
       appVersion: appVersion,
+      dragBar: DragBar.new,
       webBridge: BridgeFactory.webBridge());
 }
