@@ -3,8 +3,9 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kit/kit.dart';
+import 'package:system/func/window_manager/window_manager.dart';
 
-import '../window_manager/window_manager.dart';
+
 
 class Win10DragBar extends StatefulWidget {
   final Widget? child;
@@ -49,13 +50,13 @@ class _Win10DragBarState extends State<Win10DragBar> {
             diffEnd = false;
             if (kind != PointerDeviceKind.mouse) {
               Offset diff = d.globalPosition - start;
-              kit.webBridge?.moveBy((diff.dx).ceil(), (diff.dy).ceil()).then((value){
+              kit.webBridge.moveBy((diff.dx).ceil(), (diff.dy).ceil()).then((value){
                 diffEnd = true;
               });
             } else {
               //kit.windowManager.startDragging();
               // print("update start startDragging");
-              print("pan update");
+              print("pan update:$diffEnd");
             }
           }
 
