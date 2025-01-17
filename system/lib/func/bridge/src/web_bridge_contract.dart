@@ -41,4 +41,15 @@ abstract class WebBridgeContract implements WebBridge, LogBridge,StorageBridge {
   }
 
   Future<void> setInitSize(double width, double height) async {}
+  @override
+  Future<void> moveBy(int x, int y)  async{}
+  @override
+  Future<void> moveTo(int x, int y) async {}
+  @override
+  Future<void> clearCache() async {}
+  @override
+  Future<String> getSystemVersion() async {
+    return  "Unknown";
+  }
+  
 }

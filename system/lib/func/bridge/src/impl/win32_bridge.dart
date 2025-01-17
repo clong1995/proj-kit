@@ -165,6 +165,27 @@ class Win32Bridge extends WebBridgeContract {
 
   @override
   Future<Size>  initSize() async=> _initSize;
+
+  @override
+  Future<void> moveBy(int x, int y) async {
+    await callVoidMethod('window_offset', [x, y]);
+  }
+
+  @override
+  Future<void> moveTo(int x, int y) async {
+    await callVoidMethod('window_position', [x, y]);
+  }
+  @override
+  Future<String> getSystemVersion() async{
+    final res = await callMethod("sync_systemos_version", []);
+    print("sync_systemos_version:${res}");
+    return res.toString();
+  }
+
+  @override
+  Future<void> clearCache() async {
+    await callVoidMethod('cache_clean', [0]);
+  }
 }
 
 WebBridgeContract webBridge = Win32Bridge();

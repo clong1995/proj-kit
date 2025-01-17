@@ -1,3 +1,4 @@
+import 'package:example/drag_bar/page.dart';
 import 'package:example/toast/page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:rpx/rpx.dart';
 import 'package:system/builder.dart';
 import 'package:system/func/nav.dart';
+import 'package:system/kit.dart';
 import 'package:system/theme.dart';
+import 'package:system/widget/drag_bar/drag_bar.dart';
 
 import 'auth/page.dart';
 import 'button/page.dart';
@@ -20,10 +23,8 @@ Future<void> main() async {
     statusBarIconBrightness: Brightness.dark,
     statusBarColor: Colors.transparent,
   ));
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  final bool isMobile = defaultTargetPlatform == TargetPlatform.iOS ||
-      defaultTargetPlatform == TargetPlatform.android;
-  Rpx.init(isMobile ? null : 340);
+  Rpx.init();
+  await kitInit([], host: 'https://www.example.com', userAgent: '');
   runApp(const MyApp());
 }
 
@@ -78,6 +79,10 @@ class MyHomePage extends StatelessWidget {
             ListTile(
             title: const Text("日志"),
             onTap: () => Nav.push(context, () => const LogPage()),
+          ),
+           ListTile(
+            title: const Text("DragBar"),
+            onTap: () => Nav.push(context, () => const DragBarPage()),
           ),
         ],
       ),

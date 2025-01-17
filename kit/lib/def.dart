@@ -134,6 +134,7 @@ class Kit {
   final Widget Function<T>({
     T? value,
     required Map<T, String> items,
+    double? dropHeight,
     ValueChanged<T?>? onChanged,
   }) dropButton;
 
@@ -155,6 +156,8 @@ class Kit {
 
   // 日期对象转化为字符串
   final String Function(DateTime dateTime, String pattern) dateToStr;
+// 重新格式化日期对象
+  final String Function(String dateStr, String pattern) formatDateStr;
 
   //请求
   final Future<T> Function<S extends BaseReq, T extends BaseRes>(
@@ -217,6 +220,10 @@ class Kit {
 
   final IWindowManager windowManager;
 
+  final Future<String> Function() appVersion;
+
+  final Widget Function({Widget? child}) dragBar;
+
   const Kit(
       {
       //单位
@@ -265,6 +272,8 @@ class Kit {
       required this.datePicker,
       // 日期转化为字符串
       required this.dateToStr,
+      // 格式化日期
+      required this.formatDateStr,
 
       //请求
       required this.nio,
@@ -296,5 +305,8 @@ class Kit {
       required this.pageViewItem,
       required this.log,
       required this.webBridge,
-      required this.windowManager});
+      required this.windowManager,
+      required this.appVersion,
+      required this.dragBar
+      });
 }

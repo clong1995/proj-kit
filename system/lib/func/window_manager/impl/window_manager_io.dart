@@ -1,10 +1,9 @@
-import 'dart:ui';
-
-import 'package:kit/window_manager.dart';
+import 'package:flutter/material.dart';
 import 'package:screen_retriever/screen_retriever.dart';
+import 'package:system/func/window_manager/window_manager_interface.dart';
 import 'package:window_manager/window_manager.dart';
 
-class WindowManager implements IWindowManager {
+class WindowManager implements WindowManagerInterface {
   @override
   Future<void> close() async {
     await windowManager.close();
@@ -61,11 +60,31 @@ class WindowManager implements IWindowManager {
   
   @override
   Future<bool> isMaximized() {
-    return windowManager.isMaximizable();
+    return windowManager.isMaximized();
   }
   
   @override
   Future<void> unmaximize() {
     return windowManager.unmaximize();
   }
+  
+  @override
+  Future<void> init([Size? windowSize])async {
+    await windowManager.ensureInitialized();
+    await windowManager.waitUntilReadyToShow(
+        WindowOptions(
+          size: windowSize,
+          center: true,
+          minimumSize: windowSize,
+          backgroundColor: Colors.transparent,
+          titleBarStyle: TitleBarStyle.hidden,
+          windowButtonVisibility: false,
+        ), () async {
+      await windowManager.show();
+      await windowManager.focus();
+      await windowManager.setResizable(true);
+    });
+  }
+  
+  
 }

@@ -1,8 +1,7 @@
 import 'dart:ui';
+import 'package:system/func/window_manager/window_manager_interface.dart';
 
-import 'package:kit/window_manager.dart';
-
-class WindowManager implements IWindowManager {
+class WindowManager implements WindowManagerInterface {
   @override
   Future<void> close() {
     throw UnimplementedError();
@@ -70,5 +69,9 @@ class WindowManager implements IWindowManager {
   @override
   Future<void> unmaximize() {
     throw UnimplementedError();
+  }
+  
+  @override
+  Future<void> init([Size? windowSize]) async {
   }
 }

@@ -16,4 +16,14 @@ abstract class WebBridge  {
   Future<void> open(String url);
 
   bool isWebView2() => false;
+
+
+  Future<void> moveBy(int x, int y);
+
+  Future<void> moveTo(int x, int y);
+
+  Future<String> getSystemVersion();
+
+  Future<void> clearCache();
+
 }

@@ -108,7 +108,7 @@ Future<Map<String, dynamic>> send(
       return res;
     } catch (e) {
       _log(url, paramSig, jsonString, "$e");
-      res["state"] = "接口请求失败";
+      res["state"] = "接口请求失败:$e";
       Toast.show(res["state"]);
       return res;
     } finally {

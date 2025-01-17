@@ -1,4 +1,4 @@
-import 'package:device/device.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,12 +7,13 @@ import 'package:kit/kit.dart';
 import 'package:package/package.dart';
 import 'package:package/register.dart' as reg;
 import 'package:rpx/rpx.dart';
+import 'package:system/func/app_version.dart';
 import 'package:system/func/bridge/bridge.dart';
+import 'package:system/widget/drag_bar/drag_bar.dart';
 import '/func/log/log.dart';
 import 'package:ui_adapt/ui_adapt.dart';
 import 'package:ui_page_view_item/ui_page_view_item.dart';
 import 'package:ui_table/ui_table.dart';
-import 'package:window_manager/window_manager.dart';
 
 import 'builder.dart';
 import 'func/auth.dart';
@@ -84,26 +85,7 @@ Future<void> kitInit(
         .setWindowSize(windowSize.width, windowSize.height);
   }
 
-  if (windowSize != null &&
-      (Device.platform == "windows" ||
-          Device.platform == "macOS" ||
-          Device.platform == "linux" ||
-          Device.platform == "fuchsia")) {
-    await windowManager.ensureInitialized();
-    await windowManager.waitUntilReadyToShow(
-        WindowOptions(
-          size: windowSize,
-          center: true,
-          minimumSize: windowSize,
-          backgroundColor: Colors.transparent,
-          titleBarStyle: TitleBarStyle.hidden,
-          windowButtonVisibility: false,
-        ), () async {
-      await windowManager.show();
-      await windowManager.focus();
-      await windowManager.setResizable(true);
-    });
-  }
+  await wm.windowManager.init(windowSize);
 
   //单位
   Rpx.init(rpx);
@@ -149,6 +131,7 @@ Future<void> kitInit(
       // 日期选择
       datePicker: DatePicker.new,
       dateToStr: DateTimeFormat.toStr,
+      formatDateStr: DateTimeFormat.toDateStr,
 
       //请求
       nio: nio,
@@ -180,5 +163,7 @@ Future<void> kitInit(
       pageViewItem: UiPageViewItem.new,
       log: log,
       windowManager: wm.windowManager,
+      appVersion: appVersion,
+      dragBar: DragBar.new,
       webBridge: BridgeFactory.webBridge());
 }

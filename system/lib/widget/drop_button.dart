@@ -6,12 +6,14 @@ class DropButton<T> extends StatefulWidget {
   final T? value;
   final Map<T, String> items;
   final ValueChanged<T?>? onChanged;
+  final double? dropHeight;
 
   const DropButton({
     super.key,
     required this.items,
     this.value,
     this.onChanged,
+    this.dropHeight
   });
 
   @override
@@ -33,6 +35,7 @@ class _DropButtonState<T> extends State<DropButton<T>> {
   void didUpdateWidget(DropButton<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
     selectedValue = widget.value;
+    items = widget.items.entries.map((e) => e.key).toList();
   }
 
   @override
@@ -46,6 +49,7 @@ class _DropButtonState<T> extends State<DropButton<T>> {
       child: DropdownButtonHideUnderline(
         child: DropdownButton2<T>(
           isExpanded: true,
+      
           hint: const Text(
             '请选择',
           ),
@@ -69,6 +73,7 @@ class _DropButtonState<T> extends State<DropButton<T>> {
             width: 90.r,
             height: 35.r,
           ),
+          dropdownStyleData:DropdownStyleData(maxHeight: widget.dropHeight),
           menuItemStyleData: MenuItemStyleData(
             height: 35.r,
           ),

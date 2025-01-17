@@ -1,11 +1,10 @@
 import 'dart:ui';
 
-import 'package:kit/window_manager.dart';
-
+import 'package:system/func/window_manager/window_manager_interface.dart';
 import '../../bridge/src/bridge_factory.dart';
 import '../../bridge/src/web_bridge_contract.dart';
 
-class WindowManager implements IWindowManager {
+class WindowManager implements WindowManagerInterface {
   //WebBridgeContract webBridge = Win32TestBridge();
   bool _isMaximized = false;
   WebBridgeContract webBridge = BridgeFactory.webContractBridge();
@@ -76,4 +75,7 @@ class WindowManager implements IWindowManager {
     _isMaximized = false;
     return webBridge.restore();
   }
+
+  @override
+  Future<void> init([Size? windowSize]) async {}
 }
