@@ -1,10 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_cache_image/ui_cache_image.dart';
 
 class CachedImage {
   static Widget image({required String imageUrl, BoxFit? fit}) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
+    return UiCacheImage(
+      imageUrl,
       fit: fit,
     );
   }

@@ -44,7 +44,11 @@ dependencies:
       url: https://github.com/clong1995/flutter_ui.git
       path: ui_page_view_item
   #网络图片缓存
-  cached_network_image: ^3.4.1
+  #cached_network_image: ^3.4.1
+  ui_cache_image:
+    git:
+      url: https://github.com/clong1995/flutter_ui.git
+      path: ui_cache_image
   #本地存储
   shared_preferences: ^2.5.2
   #加解密

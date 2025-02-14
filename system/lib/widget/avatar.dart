@@ -1,6 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:rpx/ext.dart';
+import 'package:ui_cache_image/ui_cache_image.dart';
 
 class Avatar extends StatelessWidget {
   final String? imageUrl;
@@ -34,8 +34,8 @@ class Avatar extends StatelessWidget {
                 )
               : ClipOval(
                   child: imageUrl!.startsWith("http")
-                      ? CachedNetworkImage(
-                          imageUrl: imageUrl!,
+                      ? UiCacheImage(
+                          imageUrl!,
                           fit: BoxFit.fill,
                         )
                       : Image.asset(
